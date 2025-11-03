@@ -94,6 +94,7 @@ class ComposerStaticInit58e27df2a6a08c7d937da189fcef81c2
         'E' => 
         array (
             'Egulias\\EmailValidator\\' => 23,
+            'EasyRdf\\' => 8,
         ),
         'D' => 
         array (
@@ -306,6 +307,10 @@ class ComposerStaticInit58e27df2a6a08c7d937da189fcef81c2
         'Egulias\\EmailValidator\\' => 
         array (
             0 => __DIR__ . '/..' . '/egulias/email-validator/src',
+        ),
+        'EasyRdf\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/easyrdf/easyrdf/lib',
         ),
         'Drupal\\Core\\' => 
         array (

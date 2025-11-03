@@ -1,0 +1,10 @@
+name: 'Node configurable display module tests'
+type: module
+description: 'Support module for node \Drupal\Core\Field\BaseFieldDefinition::setDisplayConfigurable() testing.'
+package: Testing
+# version: VERSION
+
+# Information added by Drupal.org packaging script on 2022-09-11
+version: '2.1.0'
+project: 'rdf'
+datestamp: 1662904118
