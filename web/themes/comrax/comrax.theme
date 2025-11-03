@@ -40,7 +40,7 @@ function comrax_preprocess_page(&$variables) {
       $variables['content_type'] = $node->bundle();
     }
   }
-  $svg = file_get_contents(drupal_get_path('theme', 'comrax') . '/logo.svg');
+  $svg = file_get_contents(\Drupal::service('extension.list.theme')->getPath('comrax') . '/logo.svg');
   $variables['svg_logo'] = $svg;
   $variables['page']['lp_style'] = "";
   if (isset($variables['node'])) {
