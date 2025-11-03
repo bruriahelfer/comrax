@@ -1,0 +1,11 @@
+enabled: false
+bot_name: 'My chat Bot'
+bot_title: 'Chat Assistant'
+system_message: 'Hello! How can I help you today?'
+base_logo: ''
+token: 'XXXXXXX=='
+primary_color: '#009650'
+secondary_color: '#E4F6EE'
+text_color: '#000000'
+secondary_text_color: '#ffffff'
+chat_location: 'right'

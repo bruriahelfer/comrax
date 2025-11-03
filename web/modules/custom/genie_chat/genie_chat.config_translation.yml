@@ -1,0 +1,5 @@
+genie_chat.admin_settings:
+  title: 'Genie Chat configuration'
+  base_route_name: genie_chat.admin_settings
+  names:
+    - genie_chat.settings

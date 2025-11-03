@@ -1,0 +1,8 @@
+name: 'Genie chat'
+type: module
+description: 'Integration with Genie service'
+package: Custom
+core_version_requirement: ^9 || ^10 || ^11
+# Optional dependencies for translation support
+dependencies:
+  - drupal:config_translation

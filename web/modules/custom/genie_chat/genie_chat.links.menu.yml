@@ -1,0 +1,5 @@
+genie_chat.admin_settings:
+  title: 'Genie Chat'
+  description: 'Configure Genie Chat settings'
+  parent: system.admin_config_services
+  route_name: genie_chat.admin_settings

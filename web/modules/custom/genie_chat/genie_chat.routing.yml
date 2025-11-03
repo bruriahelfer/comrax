@@ -1,0 +1,7 @@
+genie_chat.admin_settings:
+  path: '/admin/config/services/genie-chat'
+  defaults:
+    _form: '\Drupal\genie_chat\Form\GenieChatSettingsForm'
+    _title: 'Genie Chat Settings'
+  requirements:
+    _permission: 'administer site configuration'

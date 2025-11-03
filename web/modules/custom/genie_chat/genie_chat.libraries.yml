@@ -1,0 +1,5 @@
+genie_chatbubble:
+  js:
+    https://genie.betacomrax.com/api/genie-chatbubble.umd.js: { type: external, minified: true }
+  dependencies:
+    - core/drupal

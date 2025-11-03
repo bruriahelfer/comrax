@@ -1,0 +1,37 @@
+genie_chat.settings:
+  type: config_object
+  label: 'Genie Chat settings'
+  mapping:
+    enabled:
+      type: boolean
+      label: 'Enable Genie Chat'
+    bot_name:
+      type: label
+      label: 'Bot name'
+    bot_title:
+      type: label
+      label: 'Bot title'
+    system_message:
+      type: label
+      label: 'System message'
+    base_logo:
+      type: string
+      label: 'Base logo URL'
+    token:
+      type: string
+      label: 'Authentication token'
+    primary_color:
+      type: string
+      label: 'Primary color'
+    secondary_color:
+      type: string
+      label: 'Secondary color'
+    text_color:
+      type: string
+      label: 'Text color'
+    secondary_text_color:
+      type: string
+      label: 'Secondary text color'
+    chat_location:
+      type: string
+      label: 'Chat location'

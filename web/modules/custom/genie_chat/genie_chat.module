@@ -1,0 +1,80 @@
+<?php
+
+/**
+ * @file
+ * Primary module hooks for Genie chat module.
+ */
+
+use Drupal\Core\Render\Markup;
+
+/**
+ * Implements hook_page_attachments().
+ */
+function genie_chat_page_attachments(array &$attachments) {
+  $config = \Drupal::config('genie_chat.settings');
+  
+  // Only attach the library if the module is enabled.
+  if ($config->get('enabled')) {
+    $attachments['#attached']['library'][] = 'genie_chat/genie_chatbubble';
+  }
+}
+
+/**
+ * Implements hook_page_bottom().
+ */
+function genie_chat_page_bottom(array &$page_bottom) {
+  $config = \Drupal::config('genie_chat.settings');
+  
+  // Only add the chatbubble if the module is enabled.
+  if ($config->get('enabled')) {
+    // Get default values first
+    $bot_name = $config->get('bot_name') ?? 'My chat Bot';
+    $bot_title = $config->get('bot_title') ?? 'Chat Assistant';
+    $system_message = $config->get('system_message') ?? 'Hello! How can I help you today?';
+    $base_logo = $config->get('base_logo') ?? '';
+    $primary_color = $config->get('primary_color') ?? '#009650';
+    $secondary_color = $config->get('secondary_color') ?? '#E4F6EE';
+    $text_color = $config->get('text_color') ?? '#000000';
+    $secondary_text_color = $config->get('secondary_text_color') ?? '#ffffff';
+    $chat_location = $config->get('chat_location') ?? 'right';
+    $token = $config->get('token') ?? '';
+    
+    // Try to get language-specific overrides if language module is enabled
+    if (\Drupal::moduleHandler()->moduleExists('language')) {
+      $language_manager = \Drupal::service('language_manager');
+      if ($language_manager instanceof \Drupal\language\ConfigurableLanguageManagerInterface) {
+        $current_language = $language_manager->getCurrentLanguage()->getId();
+        $language_config = $language_manager->getLanguageConfigOverride($current_language, 'genie_chat.settings');
+        
+        // Override with translated values if they exist
+        $translated_bot_title = $language_config->get('bot_title');
+        $translated_system_message = $language_config->get('system_message');
+        
+        if ($translated_bot_title !== NULL) {
+          $bot_title = $translated_bot_title;
+        }
+        if ($translated_system_message !== NULL) {
+          $system_message = $translated_system_message;
+        }
+      }
+    }
+    
+    // Add the genie-chatbubble element to the page bottom.
+    $page_bottom['genie_chat'] = [
+      '#type' => 'html_tag',
+      '#tag' => 'genie-chatbubble',
+      '#attributes' => [
+        'bot-name' => $bot_name,
+        'bot-title' => $bot_title,
+        'system-message' => $system_message,
+        'base-logo' => $base_logo,
+        'primary-color' => $primary_color,
+        'secondary-color' => $secondary_color,
+        'text-color' => $text_color,
+        'secondary-text-color' => $secondary_text_color,
+        'chat-location' => $chat_location,
+        'token' => $token,
+      ],
+    ];
+  }
+}
