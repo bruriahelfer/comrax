@@ -1,0 +1,4 @@
+services:
+  views_random_seed.seed_calculator:
+    class: \Drupal\views_random_seed\SeedCalculator
+    arguments: ['@datetime.time', '@keyvalue', '@current_user']

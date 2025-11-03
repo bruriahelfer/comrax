@@ -1,0 +1,11 @@
+name: Views random seed
+description: "Adds a random order handler with seed so random order listings with paging works."
+package: Views
+core: 8.x
+core_version_requirement: ^10 || ^11
+type: module
+
+# Information added by Drupal.org packaging script on 2024-08-03
+version: '8.x-1.3'
+project: 'views_random_seed'
+datestamp: 1722720449

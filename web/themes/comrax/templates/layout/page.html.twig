@@ -1,0 +1,257 @@
+{#
+/**
+ * @file
+ * Theme override to display a single page.
+ *
+ * The doctype, html, head and body tags are not in this template. Instead they
+ * can be found in the html.html.twig template in this directory.
+ *
+ * Available variables:
+ *
+ * General utility variables:
+ * - base_path: The base URL path of the Drupal installation. Will usually be
+ *   "/" unless you have installed Drupal in a sub-directory.
+ * - is_front: A flag indicating if the current page is the front page.
+ * - logged_in: A flag indicating if the user is registered and signed in.
+ * - is_admin: A flag indicating if the user has permission to access
+ *   administration pages.
+ *
+ * Site identity:
+ * - front_page: The URL of the front page. Use this instead of base_path when
+ *   linking to the front page. This includes the language domain or prefix.
+ *
+ * Page content (in order of occurrence in the default page.html.twig):
+ * - node: Fully loaded node, if there is an automatically-loaded node
+ *   associated with the page and the node ID is the second argument in the
+ *   page's path (e.g. node/12345 and node/12345/revisions, but not
+ *   comment/reply/12345).
+ *
+ * Regions:
+ * - page.header: Items for the header region.
+ * - page.primary_menu: Items for the primary menu region.
+ * - page.secondary_menu: Items for the secondary menu region.
+ * - page.highlighted: Items for the highlighted content region.
+ * - page.help: Dynamic help text, mostly for admin pages.
+ * - page.content: The main content of the current page.
+ * - page.sidebar_first: Items for the first sidebar.
+ * - page.sidebar_second: Items for the second sidebar.
+ * - page.footer: Items for the footer region.
+ * - page.breadcrumb: Items for the breadcrumb region.
+ *
+ * @see template_preprocess_page()
+ * @see html.html.twig
+ */
+#}
+
+{% if content_type=="lp_new" %}
+    {{ page.content }}
+
+{% else %}
+
+{% if language == "en" %}
+  <div class="contact-button">
+    <button>{{ "Contact us"|t }}</button>
+    <div class="contact-form fixed">
+      <div class="close"></div>
+      <div class="block-label">{{ "Let's discuss your project"|t }}</div>
+      {{ drupal_entity('webform', 'contact_english') }}
+    </div>
+  </div>
+{% endif %}
+{#
+{% if not page.lp_style %}
+  <div class="coffee-box only-he">
+        <div class="steam">
+          <div class="steam-flow">
+            <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="20px" height="30px" viewBox="-10 -20 150 250" style="enable-background:new 0 0 150 250;" xml:space="preserve"><g><path class="steam-cloud cloud-1" d="M64.2,40.6c-2.7,23.8,18,21,18.3,39.6c0.3,17.5-31.7,16.8-32.8,36c1.5,26.9,39.4,18.9,41.4,49.5c1.8,27.8-42.1,37.8-41,53.1"/></g><g><path class="steam-cloud cloud-2" d="M95.7,56c1.8,18.8,13,16.6,12.4,31.2C107.6,98.6,86,102.1,86,115.6c0,18.5,28,19.2,28.6,50.6c0.5,24.3-29.5,36.5-27.6,47.4"/></g><g><path class="steam-cloud cloud-3" d="M39.2,10.5C41.3,30.2,24,27.9,24.8,43.2C25.4,55.1,50.5,58.9,50.5,73c0,19.3-29.7,20.6-31.3,45.8c-1.9,30.8,37.8,25.6,40.4,57.7"/></g></svg>
+          </div>
+        </div>
+    <div class="mug"><img src="/themes/comrax/images/coffee.png" alt="contact us"></div>
+  </div>
+{% endif %}
+#}
+{% if is_front %}
+  <div class="line"><div class="wrapper"></div></div>
+{% endif %}
+
+{% if page.lp_style %}
+  <div class="landing-page">
+  <div class="logo">
+    {% if language == "he" %}
+      <a href="/"><img src="/themes/comrax/images/logo-comrax.svg"></a>
+    {% else %}
+      <a href="/en"><img src="/themes/comrax/images/logo-comrax.svg"></a>
+    {% endif %}
+  </div>
+  <div class="whatsapp">
+    <a href="https://api.whatsapp.com/send?phone=972509134445&amp;text=שלום, אשמח לקבל פרטים בנוגע לפיתוח אתר/ תוכנה" target="_blank" rel=" noopener noreferrer" class="link-tab-index">
+	    <img src="/themes/comrax/images//whatsapp.svg">
+	  </a>
+  </div>
+{% endif %}
+
+{% if not page.lp_style %}
+
+<div class="bar-top-scroll">
+  <div class="bar-inner" style="width: cal(100% - 30px);"></div>
+</div>
+
+{% endif %}
+    {% if (node.field_bg_title is empty and node.field_main_image is empty) or content_type=="service" %}
+      <div class="layout-container without-image">
+    {% else %}
+      <div class="layout-container with-image">
+    {% endif %}
+
+{% if not page.lp_style %}
+  {% if (page.white or (node.field_main_image is not empty and content_type!="project" and content_type!="lp" and content_type!="service" and content_type!="seo_laning_page")) %}
+  <header role="banner" class="white">
+  {% else %}
+  <header role="banner">
+  {% endif %}
+    <div class="logo">
+      {% if language == "he" %}
+        <a href="/" rel="home" class="site-logo">{{ svg_logo|raw }}</a>
+      {% else %}
+        <a href="/en" rel="home" class="site-logo">{{ svg_logo|raw }}</a>
+      {% endif %}
+    </div>
+    <div class="width-wrapper">
+      <div id="menu-toggle" class="only-mobile">
+        <div id="hamburger">
+          <span></span>
+          <span></span>
+          <span></span>
+        </div>
+        <div id="cross">
+          <span></span>
+          <span></span>
+        </div>
+      </div>
+        {{ page.menu }}
+    </div>
+  </header>
+
+  {{ page.breadcrumb }}
+{% endif %}
+
+  <main role="main">
+    <a id="main-content" tabindex="-1"></a>{# link is in html.html.twig #}
+
+    <div class="layout-content">
+        {% if content_type!="page" and content_type!="project" and content_type!="article" and content_type!="service" and content_type!="lp" and content_type!="seo_laning_page" %}
+            {{ page.title }}
+        {% endif %}
+        {{ page.content }}
+        {{ page.content_bottom }}
+    </div>{# /.layout-content #}
+
+    {% if page.sidebar_first %}
+      <aside class="layout-sidebar-first" role="complementary">
+        {{ page.sidebar_first }}
+      </aside>
+    {% endif %}
+
+    {% if page.sidebar_second %}
+      <aside class="layout-sidebar-second" role="complementary">
+        {{ page.sidebar_second }}
+      </aside>
+    {% endif %}
+
+  </main>
+
+{% if not page.lp_style %}
+  <footer role="contentinfo">
+    {% if language == "he" %}
+      <div id="contact" class="hebrew">
+        <div class="wrapper">
+            <div class="main-title">
+            <h2>{{ "Contact Us"|t }}</h2>
+            </div>
+            {{ page.top_footer }}
+        </div>
+        <div class="top-page">
+        <svg id="Component_74_3" data-name="Component 74 - 3" xmlns="http://www.w3.org/2000/svg" width="43" height="43" viewBox="0 0 43 43">
+        <g id="Ellipse_177" data-name="Ellipse 177" fill="#373737" stroke="#fff" stroke-width="2">
+          <circle cx="21.5" cy="21.5" r="21.5" stroke="none"/>
+          <circle cx="21.5" cy="21.5" r="20.5" fill="none"/>
+        </g>
+        <path id="Icon_ionic-ios-arrow-back" data-name="Icon ionic-ios-arrow-back" d="M2.924,8.481,9.343,2.066A1.212,1.212,0,1,0,7.626.354L.353,7.622A1.21,1.21,0,0,0,.318,9.294l7.3,7.318A1.212,1.212,0,0,0,9.338,14.9Z" transform="translate(29.966 17) rotate(90)" fill="#fff"/>
+      </svg>
+        </div>
+      </div>
+      <div class="bottom-footer">
+        <div class="wrapper">
+            {{ page.footer }}
+        </div>
+      </div>
+      {{ page.menufooter }}
+    {% else %}
+      <div class="english-top-footer">{{ page.top_footer }}</div>
+      <div id="contact" class="english">
+        <div class="wrapper">
+          <div class="columns">
+            <div class="column column-1">
+              <div class="logo"><a href="/en"><img src="/themes/comrax/images/logo-comrax.svg"></a></div>
+            </div>
+            <div class="column column-2">
+              {{ drupal_menu('main-menu---english', 1, 1) }}
+            </div>
+            <div class="column column-3">
+              <div class="label">Follow Us:</div>
+              <div class="linkedin"><a href="https://www.linkedin.com/company/comrax-ux-technology/mycompany/"><img src="/themes/comrax/images/linkedin-white.svg"></a></div>
+              <div class="facebook"><a href="https://www.facebook.com/comrax"><img src="/themes/comrax/images/facebook-white.svg"></a></div>
+              <div class="instegram"><a href="https://instagram.com/comrax_web_innovation?igshid=MzRlODBiNWFlZA=="><img src="/sites/default/files/2023-09/instegram-white.svg"></a></div>
+              <div class="youtube"><a href="https://www.youtube.com/@Comrax-Web-Innovation"><img src="/sites/default/files/2023-09/youtube-white.svg"></a></div>
+              <div class="yelp"><a href="https://www.yelp.com/biz/comrax-web-innovation-and-digital-transformation-san-francisco"><img src="/sites/default/files/2023-09/yelp-white.svg"></a></div>
+            </div>
+            <div class="column column-4">
+              {{ page.footer }}
+            </div>
+          </div>
+        </div>
+      </div>
+    {% endif %}
+  </footer>
+{% endif %}
+
+</div>{# /.layout-container #}
+{% if page.lp_style %}
+</div>
+{% endif %}
+
+<div class="fixed-mobile only-mobile-l">
+  <div class="top-page"></div>
+  {% if language == "he" %}
+    <div class="waze"><a href="https://ul.waze.com/ul?preview_venue_id=22806849.228002951.414438&navigate=yes&utm_campaign=default&utm_source=waze_website&utm_medium=lm_share_location"><img src="/themes/comrax/images/icon-waze.svg"></a></div>
+    <div class="phone"><a href="tel:972525564415"><img src="/themes/comrax/images/icon-phone.svg"></a></div>
+    <div class="whatsup"><a href="https://api.whatsapp.com/send?phone=972525564415&amp;text=שלום, אשמח לקבל פרטים בנוגע לפיתוח אתר/ תוכנה"><img src="/themes/comrax/images/icon-whatsapp.svg"></a></div>
+  {% else %}
+    <div class="waze"><a href="https://www.google.com/maps?q=Comrax+-+Web+Innovation+%26+Digital+Transformation,+345+California+St+Suite+600+%26+700,+San+Francisco,+CA+94104&ftid=0x80858174946564b9:0x98722c82fe1b1cc3&hl=en-US&gl=us&entry=gps&lucs=,47071704&g_ep=CAISBjYuNzUuMhgAINeCAyoJLDQ3MDcxNzA0QgJVUw%3D%3D&g_st=iw"><img src="/themes/comrax/images/icon-waze.svg"></a></div>
+    <div class="phone"><a href="tel:9254331987"><img src="/themes/comrax/images/icon-phone.svg"></a></div>
+    <div class="whatsup"><a href="https://api.whatsapp.com/send?phone=+19254331987&amp;text=Hello, I would be happy to receive details regarding website/software development"><img src="/themes/comrax/images/icon-whatsapp.svg"></a></div>
+  {% endif %}
+</div>
+
+<div class="popup-wrapper">
+  <div class="region-popup-wrapper">
+    <div class="close"></div>
+    {{ page.popup }}
+  </div>
+</div>
+
+{% if page.popuponce %}
+  <div class="popup-once">
+    <div class="region-popup-once">
+      <div class="close"></div>
+      {{ page.popuponce }}
+    </div>
+  </div>
+{% endif %}
+
+<!-- Calendly link widget begin -->
+<link href="https://assets.calendly.com/assets/external/widget.css" rel="stylesheet">
+<script src="https://assets.calendly.com/assets/external/widget.js" type="text/javascript" async></script>
+<!-- Calendly link widget end -->
+
+{% endif %}

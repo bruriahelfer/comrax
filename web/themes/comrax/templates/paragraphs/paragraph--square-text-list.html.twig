@@ -1,0 +1,38 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+    'image-place-' ~ content.field_image_place['#items'].value,
+    'color-' ~ paragraph.field_color.0.color,
+    'paragraph-id-' ~ paragraph.id()
+  ]
+%}
+
+{% if content.field_hide['#items'].value != "1" %}
+  {% block paragraph %}
+    <div{{ attributes.addClass(classes) }} id="paragraph-id-{{ paragraph.id() }}">
+      {% block content %}
+          {{ content.contextual_links }}
+          <div class="width-wrapper">
+              <div class="right">
+                  {{ content.field_image }}
+              </div>
+              <div class="left">
+                  <h3>{{ content.field_title }}</h3>
+                  <h4>{{ content.field_subtitle }}</h4>
+                  {{ content.field_list }}
+              </div>
+          </div>
+      {% endblock %}
+    </div>
+  {% endblock paragraph %}
+
+  <style>
+  #paragraph-id-{{ paragraph.id() }} .width-wrapper .right .field--name-field-image::after,
+  #paragraph-id-{{ paragraph.id() }} .width-wrapper .left .field--name-field-list > .field__item{
+      border-color: #{{ paragraph.field_color.0.color }};
+  }
+  </style>
+{% endif %}

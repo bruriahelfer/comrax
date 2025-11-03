@@ -1,0 +1,4 @@
+services:
+  prevnext.service:
+    class: Drupal\prevnext\PrevNextService
+    arguments: ['@config.factory', '@entity_type.manager', '@current_user']

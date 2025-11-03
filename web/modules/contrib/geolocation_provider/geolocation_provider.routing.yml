@@ -1,0 +1,15 @@
+geolocation_provider.geolocation_provider_controller_geolocation_callback:
+  path: '/geolocation_provider/geolocation/{plugin}/{search}'
+  defaults:
+    _controller: '\Drupal\geolocation_provider\Controller\GeolocationProviderController::geolocationCallback'
+    _title: 'Geolocation Callback'
+  requirements:
+    _permission: 'access content'
+
+geolocation_provider.geolocation_provider_controller_reverse_callback:
+  path: '/geolocation_provider/reverse/{plugin}/{lat}/{lon}'
+  defaults:
+    _controller: '\Drupal\geolocation_provider\Controller\GeolocationProviderController::reverseCallback'
+    _title: 'Reverse Callback'
+  requirements:
+    _permission: 'access content'

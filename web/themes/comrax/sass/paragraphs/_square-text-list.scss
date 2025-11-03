@@ -1,0 +1,195 @@
+.paragraph--type--square-text-list{
+    padding: 48px 0 140px;
+    @include res(bgwidth){
+        padding: 2.6vw 0 7vw;
+    }
+    @include res(s-m-l){
+        padding: 48px 0 10px;
+    }
+    > .width-wrapper{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        @include res(bgwidth){
+            padding-left: 2.8vw;
+            padding-right: 2.8vw;
+        }
+        @include res(s-m-l){
+            display: block;
+        }
+        .right{
+            width: 35%;
+            @include res(bgwidth){
+                width: 31.5vw;
+            }
+            @include res(s-m-l){
+                width: 220px;
+            }
+            .field--name-field-image{
+                position: relative;
+                margin: 45px;
+                @include res(bgwidth){
+                    margin: 2.5vw;
+                }
+                @include res(s-m-l){
+                    margin: 20px;
+                }
+                &:after{
+                    content:"";
+                    position: absolute;
+                    width: 100%;
+                    height: 100%;
+                    border: 3px solid;
+                    top:0;
+                    #{$start}: 0;
+                    transform: rotate(10deg);
+                    transition: transform 0.5s;
+                }
+                &:hover:after{
+                    transform: rotate(-10deg);
+                }
+                img{
+                    z-index: 10;
+                    position: relative;
+                }
+            }
+        }
+        .left{
+            width: 57%;
+            @include res(bgwidth){
+                width: 51.3vw;
+            }
+            @include res(s-m-l){
+                width: 100%;
+            }
+            h2, h3, h4{
+                font-size: 1em;
+                font-weight: normal;
+                margin: 0;
+            }
+            .field--name-field-title{
+                    padding: 0;
+                    margin: 0 0 10px;
+                    max-width: 700px;
+                    width: 100%;
+                    font-size: 2.2em;
+                    @include res(bgwidth){
+                        margin: 0 0 0.6vw;
+                        max-width: 38.7vw;
+                        font-size: 2.2vw;
+                    }
+                    @include res(s-m-l){
+                        text-align: initial;
+                        font-size: 1.4em;
+                        margin: 50px 0 0;
+                    }
+            }
+            .field--name-field-subtitle{
+                font-size: 1.4em;
+                line-height: 1.5;
+                max-width: 700px;
+                @include res(bgwidth){
+                    max-width: 38.7vw;
+                    font-size: 1.8vw;
+                }
+                @include res(s-m-l){
+                    font-size: 1em;
+                    margin-top: 15px;
+                }
+            }
+            .field--name-field-list{
+                display: flex;
+                flex-wrap: wrap;
+                font-size: 0.9em;
+                margin-top: 35px;
+                max-width: 890px;
+                @include res(bgwidth){
+                    font-size: 0.9vw;
+                    margin-top: 1.9vw;
+                    max-width: 49.2vw;
+                }
+                @include res(s-m-l){
+                    font-size: 0.7em;
+                }
+                > .field__item{
+                    padding-top: 9px;
+                    padding-#{$start}: 25px;
+                    padding-bottom: 8.9px;
+                    padding-#{$end}: 25px;
+                    border-radius: 50px;
+                    border: solid 1px;
+                    margin-bottom: 22px;
+                    margin-#{$end}: 20px;
+                    position: relative;
+                    transition: top 0.5s;
+                    top: 0;
+                    @include res(bgwidth){
+                        padding: 0.5vw 1.4vw;
+                        margin-bottom: 1.23vw;
+                        margin-#{$end}: 1.15vw;
+                    }
+                    @include res(s-m-l){
+                        margin-#{$end}: 10px;
+                        margin-bottom: 13px;
+                    }
+                    @include res(s-m){
+                        padding-top: 6px;
+                        padding-#{$start}: 15px;
+                        padding-bottom: 5.9px;
+                        padding-#{$end}: 15px;
+                    }
+                    &:hover{
+                        top: -10px;
+                        @include res(s-m){
+                            top: auto;
+                        }
+                    }
+                }
+            }
+        }
+    }
+    &.image-place-left{
+        > .width-wrapper{
+            flex-direction: row-reverse;
+            .right{
+                @include res(s-m-l){
+                    margin-#{$start}: auto;
+                }
+            }
+        }
+    }
+    &.image-place-bottom{
+        > .width-wrapper{
+            display: block;
+            > .right, > .left{
+                width: 100%;
+            }
+            > .left{
+                > div{
+                    max-width: 100%;
+                }
+                .field--name-field-title{
+                    h2{
+                        text-align: center;
+                        width: 100%;
+                        max-width: 100%;
+                    }
+                    [dir=ltr] & h2{
+                        &:after{
+                            content:"";
+                            background: -webkit-gradient(linear,left top,right top,from(#d11a2e),color-stop(25%,#d11a2e),color-stop(25%,#ec6623),color-stop(50%,#ec6623),color-stop(50%,#6eb639),color-stop(75%,#6eb639),color-stop(75%,#5bc1d4),to(#5bc1d4));
+                            background: linear-gradient(to right,#d11a2e 0%,#d11a2e 25%,#ec6623 25%,#ec6623 50%,#6eb639 50%,#6eb639 75%,#5bc1d4 75%,#5bc1d4 100%);
+                            width: 181px;
+                            height: 3px;
+                            display: block;
+                            margin: 10px auto 0;
+                        }
+                    }
+                }
+                .field--name-field-list{
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}

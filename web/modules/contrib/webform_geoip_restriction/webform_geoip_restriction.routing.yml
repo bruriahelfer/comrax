@@ -1,0 +1,7 @@
+webform_geoip_restriction.settings:
+  path: '/admin/config/system/settings/webform-geoip-restriction'
+  defaults:
+    _title: 'Webform GeoIP Restriction'
+    _form: 'Drupal\webform_geoip_restriction\Form\SettingsForm'
+  requirements:
+    _permission: 'administer site configuration'

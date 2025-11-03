@@ -1,0 +1,74 @@
+<?php
+
+/**
+ * @file
+ * Contains media_embed_extra.module.
+ */
+
+use Drupal\Core\Form\FormStateInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function media_embed_extra_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the media_embed_extra module.
+    case 'help.page.media_embed_extra':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Provides extra override options to the embedded media.') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_filter_info_alter().
+ */
+function media_embed_extra_filter_info_alter(&$info) {
+  $info['media_embed']['class'] = 'Drupal\media_embed_extra\Plugin\Filter\MediaEmbed';
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function media_embed_extra_form_editor_media_dialog_alter(&$form, FormStateInterface &$form_state) {
+
+  // If there is no alt field, then it's not an image, don't add height and
+  // width fields.
+  if (!isset($form['alt'])) {
+    return;
+  }
+  if (isset($form_state->getUserInput()['editor_object'])) {
+    $editor_object = $form_state->getUserInput()['editor_object'];
+    $media_embed_element = $editor_object['attributes'];
+  }
+  else {
+    // Retrieve the user input from form state.
+    $media_embed_element = $form_state->get('media_embed_element');
+  }
+
+  $form['dimensions'] = [
+    '#type' => 'fieldset',
+    '#title' => 'Dimensions',
+    '#description' => t('Override image type media dimensions. Leave one parameter empty to scale proportionally.'),
+  ];
+
+  $form['dimensions']['width'] = [
+    '#title' => t('Width'),
+    '#type' => 'number',
+    '#step' => '1',
+    '#default_value' => empty($media_embed_element['data-width']) ? '' : $media_embed_element['data-width'],
+    '#parents' => ['attributes', 'data-width'],
+  ];
+
+  $form['dimensions']['height'] = [
+    '#title' => t('Height'),
+    '#type' => 'number',
+    '#step' => '1',
+    '#default_value' => empty($media_embed_element['data-height']) ? '' : $media_embed_element['data-height'],
+    '#parents' => ['attributes', 'data-height'],
+  ];
+}

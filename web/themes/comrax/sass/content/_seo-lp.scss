@@ -1,0 +1,407 @@
+.page-node-type-seo-laning-page{
+    #hamburger span{
+        background-color: $orange;
+    }
+    .seo-lp-article{
+        position: relative;
+        .field--name-field-main-image{
+            img{
+              width: 100%;
+              object-fit: cover;
+              min-height: 500px;
+              @include res(l){
+                min-height: initial;
+              }
+              @include res(s-m){
+                min-height: 300px;
+              }
+            }
+          }
+        .on-image{
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            #{$end}: 0;
+            display: flex;
+            align-items: center;
+            padding: 0 20px;
+            box-sizing: border-box;
+            @include res(s){
+                align-items: flex-end;
+                padding-bottom: 20px;
+            }
+            &:after{
+                content:"";
+                background: rgb(0,0,0);
+                background: linear-gradient(180deg, rgba(0,0,0,0.62) 0%, rgba(0,0,0,0) 100%);
+                width: 100%;
+                height: 100%;
+                top: 0;
+                #{$end}: 0;
+                position: absolute;
+            }
+            h1{
+                color: #fff;
+                font-size: 2em;
+                font-weight: bold;
+                max-width: 520px;
+                @include res(s-m){
+                    font-size: 1.1em;
+                }
+            }
+            h2{
+                font-weight: normal;
+                max-width: 470px;
+                color: #fff;
+                @include res(s-m){
+                    font-size: 1em;
+                }
+            }
+            .wrapper{
+                z-index: 10;
+                @include width;
+                width: 1620px;
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                @include res(s-m){
+                    padding: 0;
+                }
+                .left{
+                    @include res(s-m){
+                        max-width: 285px;
+                    }
+                }
+                .contact-form{
+                    @include res(s-m-l){
+                        display: none;
+                    }
+                    form > .js-form-item textarea{
+                        height: 70px;
+                    }
+                    .webform-button--submit{
+                        margin: 0;
+                            margin: 0;
+                            padding: 10px;
+                    }
+                }
+            }
+        }
+        .field--name-field-main-image-mobile{
+            display: none;
+            @include res(s-m){
+                display: block;
+            }
+            + .field--name-field-main-image{
+                @include res(s-m){
+                    display: none;
+                }
+            }
+        }
+    }
+    .field--name-field-pg-text-image{
+        @include width;
+        margin-bottom: 160px;
+        @include res(s-m){
+            margin-bottom: 50px;
+        }
+        .paragraph--type--text-and-image-video{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 93px;
+            @include res(s-m){
+                display: block;
+                margin-top: 50px;
+            }
+            .left{
+                width: 44%;
+                @include res(xl){
+                    width: 60%;
+                }
+                @include res(l){
+                    width: 60%;
+                }
+                @include res(s-m){
+                    width: 100%;
+                    margin-bottom: 20px;
+                }
+                .field--name-field-title{
+                    h2{
+                        font-size: 2em;
+                        padding: 0;
+                        margin: 0 0 60px;
+                        width: 565px;
+                        @include res(xl){
+                            font-size: 1.5em;
+                            margin: 0 0 20px;
+                        }
+                        @include res(s-m-l){
+                            font-size: 1.5em;
+                            margin: 0 0 20px;
+                        }
+                    }
+                }
+                .field--name-field-content-long{
+                    font-size: 1.4em;
+                    @include res(xl){
+                        font-size: 1em;
+                        line-height: 1.3;
+                    }
+                    @include res(s-m-l){
+                        font-size: 1em;
+                        line-height: 1.3;
+                    }
+                }
+            }
+            .right{
+                width: 36%;
+                @include res(s-m){
+                    width: 100%;
+                }
+                img, video{
+                    width: 100%;
+                }
+                .field--name-field-media-oembed-video{
+                    position: relative;
+                    padding-bottom: 56.25%;
+                    iframe{
+                        position: absolute;
+                        top: 0;
+                        left: 0;
+                        width: 100%;
+                        height: 100%;
+                    }
+                }
+            }
+        }
+        > .field__item:nth-child(2n){
+            .paragraph--type--text-and-image-video{
+                flex-direction: row-reverse;
+            }
+        }
+    }
+    .node__content{
+        h2, .bullets > .field--name-field-bullet-title{
+            position: relative;
+            &:after{
+                content:"";
+                background: -webkit-gradient(linear,left top,right top,from(#d11a2e),color-stop(25%,#d11a2e),color-stop(25%,#ec6623),color-stop(50%,#ec6623),color-stop(50%,#6eb639),color-stop(75%,#6eb639),color-stop(75%,#5bc1d4),to(#5bc1d4));
+                background: linear-gradient(to right,#d11a2e 0%,#d11a2e 25%,#ec6623 25%,#ec6623 50%,#6eb639 50%,#6eb639 75%,#5bc1d4 75%,#5bc1d4 100%);
+                width: 124px;
+                height: 3px;
+                display: block;
+                margin: 20px 0 0 0;
+                @include res(xl){
+                    margin-top: 10px;
+                }
+            }
+        }
+        .bullets{
+            padding-top: 70px;
+            background-color: #F6F6F6;
+            @include res(s-m){
+                padding-top: 50px;
+                padding-bottom: 30px
+            }
+            > div{
+                @include width;
+                &.field--name-field-bullet-title{
+                    text-align: center;
+                    font-size: 2em;
+                    font-weight: 600;
+                    margin-bottom: 80px;
+                    @include res(s-m){
+                        font-size: 1.6em;
+                        margin-bottom: 40px;
+                    }
+                    &:after{
+                        margin: 20px auto 0;
+                        @include res(xl){
+                            margin-top: 10px;
+                        }
+                        @include res(s-m-l){
+                            margin-top: 10px;
+                        }
+                    }
+                }
+                &.field--name-field-bullets{
+                    display: flex;
+                    flex-wrap: wrap;
+                    > .field__item{
+                        width: 30%;
+                        margin-#{$end}: 5%;
+                        margin-bottom: 80px;
+                        @include res(s-m){
+                            margin-bottom: 30px;
+                        }
+                        &:nth-child(3n){
+                            margin-#{$end}: 0;
+                            @include res(s-m-l){
+                                margin-#{$end}: 4%;
+                            }
+                        }
+                        @include res(l){
+                            width: 48%;
+                            margin-#{$end}: 4%;
+                            &:nth-child(2n){
+                                margin-#{$end}: 0;
+                            }
+                        }
+                        @include res(s-m){
+                            width: 100%;
+                            margin-#{$end}: 0;
+                        }
+                        .paragraph--type--cube{
+                            background: url(/themes/comrax/images/ul-circle.svg) no-repeat $start top;
+                            padding-#{$start}: 55px;
+                            .field--name-field-title h2{
+                                font-size: 1.3em;
+                                font-weight: bold;
+                                margin: 0 0 10px;
+                                padding: 0;
+                                @include res(xl){
+                                    font-size: 1.5em;
+                                }
+                                @include res(s-m-l){
+                                    font-size: 1.1em;
+                                }
+                                &:after{
+                                    display: none;
+                                }
+                            }
+                            .field--name-field-subtitle h2{
+                                font-size: 1em;
+                                margin: 0 0 10px;
+                                padding: 0;
+                                @include res(xl){
+                                    font-size: 0.9em;
+                                }
+                                @include res(s-m-l){
+                                    font-size: 0.9em;
+                                }
+                                &:after{
+                                    display: none;
+                                }
+                            }
+                            .field--name-field-content-long{
+                                @include res(xl){
+                                    font-size: 0.9em;
+                                }
+                                @include res(s-m-l){
+                                    font-size: 0.9em;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .last-projects{
+            h2{
+                text-align: center;
+                margin-top: 50px;
+                font-size: 2em;
+                font-weight: 600;
+                @include res(s-m){
+                    font-size: 1.6em;
+                }
+                &:after{
+                    margin: 20px auto 0;
+                    @include res(xl){
+                        margin-top: 10px;
+                    }
+                    @include res(s-m-l){
+                        margin-top: 10px;
+                    }
+                }
+            }
+            .view-content .views-row{
+                display: none;
+                &:nth-child(1), &:nth-child(2), &:nth-child(3){
+                    display: block;
+                }
+            }
+            .view-content .views-row:nth-child(4){
+                @include res(l){
+                    display: block;
+                }
+            }
+        }
+        .faq{
+            background-color: #F6F6F6;
+            padding-top: 50px;
+            padding-bottom: 50px;
+            .width-wrapper{
+                display: flex;
+                justify-content: space-between;
+                @include res(xl){
+                    display: block;
+                }
+                @include res(s-m-l){
+                    display: block;
+                }
+                .paragraph--type--faq{
+                    margin: 0;
+                    padding: 0;
+                }
+                .right{
+                    z-index: 10;
+                    @include res(xl){
+                        display: none;
+                    }
+                    @include res(s-m-l){
+                        display: none;
+                    }
+                }
+            }
+        }
+        .services{
+            h2{
+                font-size: 2em;
+                font-weight: 600;
+                @include res(s-m){
+                    font-size: 1.6em;
+                }
+                &:after{
+                    margin: 20px auto 0;
+                    @include res(xl){
+                        margin-top: 10px;
+                    }
+                    @include res(s-m-l){
+                        margin-top: 10px;
+                    }
+                }
+            }
+            .field--name-field-subtitle h2:after{
+                display: none;
+            }
+            .paragraph--type--colored-icon h2:after{
+                display: none;
+            }
+        }
+        .map{
+            margin-top: 50px;
+            margin-bottom: 100px;
+            h2{
+                margin-bottom: 45px;
+                text-align: center;
+                font-weight: 600;
+                font-size: 2em;
+                @include res(s-m){
+                    font-size: 1.6em;
+                }
+                &:after{
+                    margin: 20px auto 0;
+                    @include res(xl){
+                        margin-top: 10px;
+                    }
+                    @include res(s-m-l){
+                        margin-top: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

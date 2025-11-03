@@ -1,0 +1,92 @@
+main .field--name-field-paragraphs .paragraph--type--form{
+    padding-top: 60px;
+    padding-bottom: 60px;
+    form{
+        width: 1450px;
+        max-width: 100%;
+        margin: 0 auto;
+        display: flex;
+        justify-content: space-between;
+        @include res(s-m-l){
+            flex-wrap: wrap;
+        }
+        .messages{
+            display: none;
+        }
+        .form-item--error-message{
+            text-align: initial;
+            line-height: 1;
+            &:before{
+                display: none;
+            }
+            strong{
+                font-size: 0.8em;
+                color: red;
+                font-weight: normal;
+            }
+        }
+        .webform-confirmation{
+            text-align: center;
+            width: 100%;
+        }
+        .js-form-item{
+            width: calc(33.333% - 140px);
+            @include res(l){
+                width: 48%;
+            }
+            @include res(s-m){
+                width: 100%;
+            }
+            input{
+                width: 100%;
+                border: 1px solid #D9D6D6;
+                padding: 10px;
+                box-sizing: border-box;
+                height: 60px;
+            }
+            textarea{
+                resize: none;
+            }
+        }
+        fieldset.webform-telephone--wrapper{
+            margin: 0;
+            .fieldset-wrapper{
+                .js-form-item{
+                    width: 100%;
+                    input.js-webform-telephone-international{
+                        padding-#{$start}: 50px;
+                    }
+                    .iti{
+                        width: 100%;
+                    }
+                }
+            }
+            strong.error{
+                display: none!important;
+            }
+            .form-item--error-message{
+                .error{
+                    font-size: 0.8em;
+                    font-weight: normal;
+                    color: red;
+                    padding-top: 3px;
+                    display: block!important;
+                }
+            }
+        }
+        .webform-button--submit{
+                border: 2px solid;
+                color: #0F2435;
+                background: none;
+                padding: 10px 60px;
+                height: 60px;
+                @include res(l){
+                    width: 48%;
+                }
+                @include res(s-m){
+                    width: 100%;
+                    text-align: center;
+                }
+        }
+    }
+}

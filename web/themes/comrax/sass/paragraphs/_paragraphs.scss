@@ -1,0 +1,170 @@
+.paragraph--type--paragraphs{
+    padding: 50px 0;
+    margin-top: 40px;
+    @include res(s-m){
+        padding: 20px 0;
+        margin-top: 10px
+    }
+    > .field--name-field-title{
+        @include width;
+        font-size: 2.2em;
+        font-weight: 600;
+        margin-bottom: 30px;
+          @include res(l){
+            font-size: 2em;
+          }
+          @include res(s-m){
+            font-size: 1.5em;
+          }
+    }
+    .field--name-field-pg{
+        @include width;
+        width: 1565px;
+    }
+    .paragraph--type--editor{
+        margin: 0 auto;
+        .field--name-field-title{
+            text-align: center;
+        }
+    }
+    .paragraph--type--cubes{
+        padding: 50px 0 0;
+        width: 100%;
+    }
+}
+
+#form-quote{
+    box-shadow: 0px 8px 10px #95959529;
+    .field--name-field-pg{
+        display: flex;
+        justify-content: space-between;
+        @include res(s-m-l){
+            display: block;
+        }
+        > .field__item{
+            width: 48%;
+            @include res(xl){
+                width: 49%;
+            }
+            @include res(s-m-l){
+                width: 100%;
+                &:nth-child(1){
+                    margin-bottom: 50px;
+                }
+            }
+            .width-wrapper{
+                padding: 0;
+            }
+            .paragraph--type--form{
+                padding: 0;
+                max-width: 690px;
+                @include res(s-m-l){
+                    max-width: 100%;
+                }
+            }
+            .paragraph--type--cubes{
+                max-width: 685px;
+                padding-top: 10px;
+                .width-wrapper{
+                    padding-top: 0;
+                    padding-bottom: 0;
+                }
+                &.style-client .field--name-field-cubes .field__item{
+                    .paragraph--type--grid-item-client {
+                        text-align: initial;
+                        padding-#{$start}: 10px;
+                        .field--name-field-name::before{
+                            display: none;
+                        }
+                        svg{
+                            width: 38px;
+                            height: 33px;
+                        }
+                        .field--name-field-content-long{
+                            padding-top: 40px;
+                        }
+                    }
+                }
+                .owl-item{
+                    align-items: flex-start;
+                }
+                .owl-controls{
+                    width: 100%;
+                }
+                .owl-dots{
+                    display: flex!important;
+                    margin-top: 50px;
+                    padding-#{$start}: 7px;
+                    .owl-dot{
+                        width: 15px;
+                        height: 15px;
+                        background-color: #EEE;
+                        border-radius: 50%;
+                        margin-#{$end}: 7px;
+                        &:nth-child(1).active{
+                            background-color: $turkiz;
+                        }
+                        &:nth-child(2).active{
+                            background-color: $orange;
+                        }
+                        &:nth-child(3).active{
+                            background-color: $green;
+                        }
+                        &:nth-child(4).active{
+                            background-color: #d11a2e;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+#form-quote, #block-popupblock{
+    form{
+        flex-wrap: wrap;
+        font-size: 0.9em;
+        display: flex;
+        justify-content: space-between;
+        > .js-form-item{
+            width: 48%;
+            margin: 13px 0;
+            @include res(s){
+                width: 100%;
+            }
+            input{
+                height: 45px;
+                width: 100%;
+                border: 1px solid #D4D4D4;
+                box-sizing: border-box;
+                padding: 10px;
+                &.js-webform-telephone-international{
+                    padding-#{$start}: 52px;
+                }
+            }
+            &.full-width{
+                width: 100%;
+            }
+            &.webform-telephone--wrapper{
+                margin: 0;
+                .js-form-item{
+                    margin: 13px 0;
+                }
+            }
+            textarea{
+                border: 1px solid #D4D4D4;
+                box-sizing: border-box;
+                padding: 10px;
+            }
+        }
+        .webform-button--submit{
+            width: 100%;
+            background-color: $orange;
+            border: none;
+            border-radius: 9px;
+            color: #fff;
+            margin-top: 15px;
+            height: 60px;
+        }
+    }
+}

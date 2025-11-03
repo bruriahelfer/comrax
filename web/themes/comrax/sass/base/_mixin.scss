@@ -1,0 +1,126 @@
+@mixin width(){
+  width: 1630px;
+  max-width: 100%;
+  margin: 0 auto;
+  padding-left: 50px;
+  padding-right: 50px;
+  box-sizing: border-box;
+  @include res(s-m){
+    padding-left: 30px;
+    padding-right: 30px;
+  }
+  &.narrow{
+    width: 1430px;
+  }
+}
+
+@mixin button(){
+  padding: 11px 30px;
+  background-color: $orange;
+  display: block;
+  -webkit-transition: all 0.5s;
+  transition: all 0.5s;
+  border-radius: 30px;
+  color: #fff;
+  font-weight: 700;
+  &:hover{
+    background-color: $dark-orange;
+  }
+  @include res(s-m){
+    font-weight: normal;
+    font-size: 0.9em;
+    padding: 6px 22px;
+  }
+  [dir="ltr"] &{
+    border-radius: 0;
+  }
+}
+
+@mixin button-arrow(){
+  color: $orange;
+  position: relative;
+  padding-#{$end}: 15px;
+  -webkit-transition: padding 0.5s;
+  transition: $end 0.5s;
+  &:after, &:before{
+      content:"";
+      width: 6px;
+      height: 1px;
+      background-color: $orange;
+      position: absolute;
+      #{$end}: 0;
+  }
+  &:before{
+      -webkit-transform: rotate(-45deg);transform: rotate(-45deg);
+      top:11px;
+      [dir="ltr"] &{
+        top: 15px;
+      }
+  }
+  &:after{
+      -webkit-transform: rotate(45deg);transform: rotate(45deg);
+      top: 15px;
+      [dir="ltr"] &{
+        top: 11px;
+      }
+  }
+}
+
+@mixin arrow-left-right(){
+  background: url(/themes/comrax/images/arrow-#{$end}.svg) no-repeat $end 5px center;
+  padding-#{$end}: 30px;
+  &:hover{
+      -webkit-animation: arrow-left-right 0.9s infinite linear;animation: arrow-left-right 0.9s infinite linear;
+      @-webkit-keyframes arrow-left-right {
+          0% {background-position: $end 5px center;}
+          50% {background-position: $end center;;}
+          100% {background-position: $end 5px center;}
+      }
+      @keyframes button-arrow {
+          0% {background-position: $end 5px center;}
+          50% {background-position: $end center;;}
+          100% {background-position: $end 5px center;}
+      }
+  }
+}
+@mixin button-arrow-bottom(){
+  color: $orange;
+  position: relative;
+  padding-#{$end}: 15px;
+  -webkit-transition: padding 0.5s;
+  transition: padding 0.5s;
+  &:hover{
+    &:after, &:before{
+      -webkit-animation: button-arrow-bottom 1.1s infinite ease-in-out;animation: button-arrow-bottom 1.1s infinite ease-in-out;
+      @-webkit-keyframes button-arrow-bottom {
+          0% {top: 14px;}
+          25% {top: 13px;}
+          75% {top: 15px;}
+          100% {top: 14px;}
+      }
+      @keyframes button-arrow {
+        0% {top: 14px;}
+        25% {top: 13px;}
+        75% {top: 15px;}
+        100% {top: 14px;}
+      }
+    }
+  }
+  &:after, &:before{
+      content:"";
+      width: 6px;
+      height: 1px;
+      background-color: $orange;
+      position: absolute;
+      #{$end}: 0;
+      top: 14px;
+  }
+  &:before{
+      -webkit-transform: rotate(-45deg);transform: rotate(-45deg);
+      margin-#{$end}: 4px;
+  }
+  &:after{
+      -webkit-transform: rotate(45deg);transform: rotate(45deg);
+      margin-#{$start}: 4px;
+  }
+}

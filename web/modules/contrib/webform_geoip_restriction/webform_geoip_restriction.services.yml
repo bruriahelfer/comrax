@@ -1,0 +1,4 @@
+services:
+  webform_geoip_restriction.update_maxmind_manager:
+    class: Drupal\webform_geoip_restriction\UpdateMaxmindManager
+    arguments: ['@config.factory', '@file_system']

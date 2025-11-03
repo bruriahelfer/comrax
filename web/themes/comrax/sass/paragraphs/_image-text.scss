@@ -1,0 +1,259 @@
+.page-node-type-project{
+    .field--name-field-paragraphs{
+        .paragraph--type--image-text:first-child{
+            .right-side, .left-side{
+                opacity: 1;
+            }
+            .field--name-field-media-image{
+                margin-top: -125px;
+                @include res(s-m){
+                    margin-top: -40px;
+                }
+            }
+        }
+    }
+}
+
+
+.paragraph--type--image-text{
+    padding-top: 40px;
+    @include res(xl){
+        font-size: 0.8em;
+    }
+    .field--name-field-image{
+        > .field__item{
+            display: none;
+            &:nth-child(1){
+                display: block;
+            }
+        }
+        .owl-stage-outer{
+            .owl-item{
+                opacity: 0.2;
+                transition: opacity 0.5s;
+                &.active{
+                    opacity: 1;
+                }
+            }
+        }
+    }
+    .bg{
+        height: 100%;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        z-index: -1;
+        #{$start}: 0;
+        @include res(s-m-l){
+            margin-top: 40px;
+        }
+    }
+    .width-wrapper{
+        display: flex;
+        align-items: center;
+        @include res(s-m-l){
+            display: flex;
+            flex-direction: column;
+        }
+    }
+    .right-side{
+        width: 50%;
+        margin-top: 17px;
+        margin-#{$start}: -20px;
+        opacity: 0;
+        transition: all 1s;
+        transition-delay: 0.5s;
+        @include res(s-m-l){
+            width: 100%;
+            opacity: 1;
+            margin-#{$start}: 0;
+        }
+        .field--name-field-media-image{
+            text-align: center;
+        }
+        + .left-side{
+            @include res(s-m-l){
+                margin-top: 30px;
+            }
+        }
+    }
+    .left-side{
+        width: 48%;
+        margin-#{$end}: -20px;
+        opacity: 0;
+        transition: all 1s;
+        transition-delay: 0.5s;
+        @include res(s-m-l){
+            width: 100%;
+            margin-#{$end}: 0px;
+            opacity: 1;
+        }
+        h3{
+            font-size: 2.5em;
+            margin: 0 auto 10px;
+            @include res(s-m-l){
+                font-size: 1.5em;
+            }
+        }
+        .field--name-field-title{
+            padding: 0;
+            font-weight: 700;
+            width: 700px;
+            margin: 0 auto;
+            max-width: 100%;
+        }
+        h3{
+            font-weight: normal;
+            margin: 0;
+        }
+        .field--name-field-subtitle{
+            font-size: 1.2em;
+            width: 700px;
+            max-width: 100%;
+            margin: 0 auto 60px;
+            line-height: 1.5;
+        }
+        .field--name-field-contentlong{
+            font-size: 1em;
+            width: 700px;
+            max-width: 100%;
+            margin: 0 auto;
+            line-height: 1.8;
+            @include res(s-m){
+                font-size: 0.9em;
+            }
+        }
+        + .right-side{
+            @include res(s-m-l){
+                margin-top: 30px;
+            }
+        }
+    }
+    &.image-bottom-1{
+        .field--name-field-image{
+            position: relative;
+            top: 40px;
+            @include res(s-m-l){
+                top: auto;
+            }
+        }
+        + .paragraph{
+            padding-top: 100px;
+        }
+    }
+    &.visible{
+        .right-side{
+            opacity: 1;
+            margin-#{$start}: 0;
+        }
+        .left-side{
+            opacity: 1;
+            margin-#{$end}: 0;
+        }
+    }
+    &.image-place-right{
+        h3{
+            font-weight: 600;
+            margin: 0;
+        }
+        .field--name-field-subtitle{
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            margin: 0 auto;
+            @include res(l){
+                font-size: 1.1em;
+            }
+            @include res(s-m){
+                font-size: 0.9em;
+            }
+        }
+        .left-side{
+            margin-#{$start}: 30px;
+            @include res(s-m-l){
+                margin-#{$start}: 0;
+            }
+        }
+        .align-image-start{
+            .right-side{
+                .field--name-field-media-image{
+                    text-align: $start;
+                }
+            }
+        }
+    }
+    &.image-place-left{
+        .width-wrapper{
+            flex-direction: row-reverse;
+            @include res(s-m-l){
+                flex-direction: column;
+            }
+            .left-side{
+                margin-#{$end}: 30px;
+                @include res(s-m){
+                    margin-#{$end}: 0;
+                }
+            }
+        }
+        h3{
+            font-weight: 600;
+            margin: 0;
+        }
+        .field--name-field-subtitle{
+            font-weight: 600;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            @include res(l){
+                font-size: 1.1em;
+            }
+            @include res(s-m){
+                font-size: 0.9em;
+            }
+        }
+    }
+    &.image-place-bottom{
+        .width-wrapper{
+            flex-wrap: wrap;
+            flex-direction: column-reverse;
+            .right-side, .left-side{
+                width: 100%;
+                text-align: center;
+            }
+        }
+    }
+    &.image-place-top{
+        .width-wrapper{
+            flex-wrap: wrap;
+            .right-side, .left-side{
+                width: 100%;
+                text-align: center;
+            }
+            .field--type-image{
+                margin-bottom: 30px;
+            }
+        }
+    }
+    &.no-image-mobile-1{
+       .right-side, .left-side{
+            @include res(s-m-l){
+                margin-top: 0px;
+            }
+        }
+        .right-side{
+            @include res(s-m-l){
+                display: none;
+            }
+        }
+    }
+    &.more-space-1{
+        padding: 80px 0;
+        @include res(s-m-l){
+            padding: 40px 0 0;
+        }
+    }
+    &.radius-1{
+        img{
+            border-radius: 28px;
+        }
+    }
+}

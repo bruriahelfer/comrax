@@ -1,0 +1,8 @@
+services:
+  plugin.manager.geolocation_provider_plugin:
+    class: Drupal\geolocation_provider\Plugin\GeolocationProviderPluginManager
+    parent: default_plugin_manager
+  geolocation_provider.encoder.geojson:
+    class: Drupal\geolocation_provider\Encoder\GeoJsonEncoder
+    tags:
+      - { name: encoder, format: geocodejson }

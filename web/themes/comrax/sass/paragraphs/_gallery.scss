@@ -1,0 +1,54 @@
+.paragraph--type--gallery{
+    width: 100%;
+    h2{
+        text-align: center;
+    }
+    .field--name-field-gallery-images{
+        width: 80%;
+        margin: 0 10%;
+    }
+    .owl-stage-outer{
+        overflow: visible;
+        margin: 0 auto;
+    }
+    .owl-controls{
+        position: absolute;
+        top: 0;
+        height: 100%;
+        width: 0;
+        .owl-prev, .owl-next{
+            width: calc(50vw - 562px);
+            position: absolute;
+            top: 0;
+            height: 100%;
+            font-size: 0;
+            @media (max-width: 1430px){
+                width: calc(10vw + 10px);
+                @include res(s-m){
+                    width: 10vw;
+                }
+            }
+        }
+        .owl-prev{
+            #{$start}: calc(-50vw + 532px);
+            background: linear-gradient(90deg, rgba(255,255,255,0), rgb(255, 255, 255) 80%);
+            @media (max-width: 1430px){
+                #{$start}: calc(-10vw - 40px);
+                @include res(s-m){
+                    #{$start}: -10vw;
+                }
+            }
+        }
+        .owl-next{
+            #{$end}: calc(-50vw - 532px);
+            background: linear-gradient(270deg, rgba(255,255,255,0), rgb(255, 255, 255) 80%);
+            @media (max-width: 1430px){
+                #{$end}: auto;
+                #{$start}: calc(80vw - 40px);
+                @include res(s-m){
+                    #{$start}: 80vw;
+                }
+            }
+        }
+    }
+}

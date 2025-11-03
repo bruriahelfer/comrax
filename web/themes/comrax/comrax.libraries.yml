@@ -1,0 +1,33 @@
+styles_ltr:
+  css:
+    theme:
+      stylesheets/comrax-ltr.css: {}
+
+styles_rtl:
+  css:
+    theme:
+      stylesheets/comrax-rtl.css: {}
+
+base:
+  css:
+    theme:
+      js/owl-carousel/assets/owl.carousel.css: {}
+      //fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,900: {}
+      //fonts.googleapis.com/css2?family=Noto+Sans+Hebrew:wght@100..900&display=swap: {}
+  js:
+    js/owl-carousel/owl.carousel.min.js: {}
+    js/basic.js: {}
+    js/comrax.js: {}
+    js/owl.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+    - core/drupal.ajax
+    - core/jquery.ui.effects.core
+    - core/jquery.ui.effects.slide
+    - core/jquery.ui.effects.size
+
+logos:
+  js:
+    js/logosgrid.js: {}

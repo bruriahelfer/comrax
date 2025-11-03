@@ -1,0 +1,107 @@
+<?php
+
+/**
+ * @file
+ * Contains prevnext.module.
+ */
+
+use Drupal\Core\Cache\Cache;
+use Drupal\Core\Entity\Display\EntityViewDisplayInterface;
+use Drupal\Core\Entity\EntityInterface;
+use Drupal\Core\Routing\RouteMatchInterface;
+use Drupal\prevnext\PrevNextServiceInterface;
+
+/**
+ * Implements hook_help().
+ */
+function prevnext_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the prevnext module.
+    case 'help.page.prevnext':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('Add a &quot;Previous/Next&quot; links to the entity display.') . '</p>';
+      return $output;
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function prevnext_theme($existing, $type, $theme, $path) {
+  $themes = [];
+
+  $themes['prevnext'] = [
+    'variables' => [
+      'direction' => '',
+      'text' => '',
+      'id' => '',
+      'url' => '',
+    ],
+  ];
+
+  return $themes;
+}
+
+/**
+ * Implements hook_entity_extra_field_info().
+ */
+function prevnext_entity_extra_field_info() {
+  $extra = [];
+
+  $config = \Drupal::config('prevnext.settings');
+  $entity_types = $config->get('prevnext_enabled_entity_types');
+
+  if (!empty($entity_types)) {
+    $entity_bundles = $config->get('prevnext_enabled_entity_bundles');
+
+    foreach ($entity_types as $entity_type) {
+      if (!empty($entity_bundles[$entity_type])) {
+        foreach ($entity_bundles[$entity_type] as $entity_bundle) {
+          $extra[$entity_type][$entity_bundle]['display']['prevnext_previous'] = [
+            'label' => t('Previous'),
+            'description' => t('Previous entity indicator'),
+            'weight' => 50,
+          ];
+          $extra[$entity_type][$entity_bundle]['display']['prevnext_next'] = [
+            'label' => t('Next'),
+            'description' => t('Next entity indicator'),
+            'weight' => 50,
+          ];
+        }
+      }
+    }
+  }
+
+  return $extra;
+}
+
+/**
+ * Implements hook_entity_view().
+ */
+function prevnext_entity_view(array &$build, EntityInterface $entity, EntityViewDisplayInterface $display, $view_mode) {
+  if (!$display->getComponent('prevnext_previous')) {
+    return;
+  }
+  $prevnext = \Drupal::service('prevnext.service');
+  assert($prevnext instanceof PrevNextServiceInterface);
+  $build += $prevnext->buildEntityLinks($entity);
+}
+
+/**
+ * Implements hook_entity_presave().
+ */
+function prevnext_entity_presave(EntityInterface $entity) {
+  $config = \Drupal::config('prevnext.settings');
+  $entity_types = $config->get('prevnext_enabled_entity_types');
+
+  if (is_array($entity_types) && in_array($entity->getEntityTypeId(), $entity_types)) {
+    $entity_bundles = $config->get('prevnext_enabled_entity_bundles');
+
+    if (in_array($entity->bundle(), $entity_bundles[$entity->getEntityTypeId()])) {
+      // We are saving an entity of a type with prevnext enabled, so invalidate
+      // all cached rendered output of other entities of this type with our tag.
+      Cache::invalidateTags(["prevnext-{$entity->getEntityTypeId()}-{$entity->bundle()}"]);
+    }
+  }
+}

@@ -1,0 +1,10 @@
+name: GeoIP
+description: API for using the Maxmind Geo databases.
+core_version_requirement: ^8 || ^9 || ^10
+type: module
+configure: geoip.configure
+
+# Information added by Drupal.org packaging script on 2024-06-19
+version: '3.0.0'
+project: 'geoip'
+datestamp: 1718791115

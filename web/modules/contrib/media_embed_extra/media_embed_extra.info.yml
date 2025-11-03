@@ -1,0 +1,12 @@
+name: 'Media Embed Extra'
+type: module
+description: 'Provides extra override options to the embedded media.'
+core_version_requirement: ^10.3 || ^11
+package: 'Media'
+dependencies:
+  - drupal:media
+
+# Information added by Drupal.org packaging script on 2025-02-27
+version: '1.0.0-beta3'
+project: 'media_embed_extra'
+datestamp: 1740689453

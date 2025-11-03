@@ -1,0 +1,141 @@
+.page-node-type-service{
+    .header-service{
+        position: relative;
+        .background{
+          img{
+            width: 100%;
+            min-height: 300px;
+            object-fit: cover;
+          }
+          &.only-mobile-l + .background{
+            @include res(s-m){
+              display: none;
+            }
+          }
+          &.only-mobile-l{
+            img{
+              max-height: 490px;
+            }
+          }
+        }
+        .background + .on-image{
+          position: absolute; 
+          width: 100%;
+          height: 100%;
+          top: 0;
+          #{$end}: 0;
+          h1.page-title{
+            max-width: 440px;
+          }
+          h2{
+            max-width: 600px;
+            width: 35vw;
+            @include res(s-m){
+              width: 100%;
+            }
+          }
+        }
+        .on-image:first-child{
+          padding-top: 120px;
+          h2{
+            max-width: 1000px;
+          }
+        }
+        .on-image{
+           display: flex;
+           @include res(s-m-l){
+            align-items: flex-end
+           }
+           .wrapper{
+            @include width;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            @include res(s-m-l){
+              padding-left: 30px;
+              padding-right: 30px;
+              padding-bottom: 40px;
+              .field--name-field-logo{
+                max-width: 180px;
+                margin-bottom: 15px;
+              }
+            }
+           }
+           h1.page-title{
+              padding: 0;
+              margin: 15px 0 0;
+              font-size: 2.5em;
+              font-weight: bold; 
+              line-height: 1.2; 
+              @include res(s-m){
+                font-size: 1.4em;
+              }
+           }
+           h2{
+            font-size: 2em;
+            line-height: 1.2;
+            font-weight: 600;
+            margin: 6px 0 0;
+            @include res(xxl){
+                font-size: 1.8em;
+            }
+            @include res(xl){
+                font-size: 1.5em;
+            }
+            @include res(l){
+              font-size: 1.2em;
+            }
+            @include res(s-m){
+              font-size: 1em;
+              width: 100%;
+            }
+           }
+           h3{
+            font-size: 1.25rem;
+            line-height: 1.5;
+            font-weight: normal;
+            max-width: 900px;
+            margin: 18px 0;
+           }
+           .lp-link{
+                margin-top: 2.5vw;
+                a{
+                    @include button;
+                    border-radius: 6px;
+                    display: inline-block;
+                    padding: 19px 30px;
+                    @include res(xxl){
+                        padding: 12px 23px;
+                    }
+                    @include res(xl){
+                        padding: 12px 23px;
+                    }
+                    @include res(s-m-l){
+                        padding: 12px 23px;
+                    }
+                }
+                &.popup-open span{
+                  @include button;
+                  border-radius: 6px;
+                  display: inline-block;
+                  padding: 19px 30px;
+                  cursor: pointer;
+                  @include res(xxl){
+                      padding: 12px 23px;
+                  }
+                  @include res(xl){
+                      padding: 12px 23px;
+                  }
+                  @include res(s-m-l){
+                      padding: 12px 23px;
+                  }
+                }
+           }
+        }
+    }
+    .title-white{
+      .header-service{
+        color: #fff;
+      }
+    }
+}

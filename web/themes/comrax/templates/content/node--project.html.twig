@@ -1,0 +1,88 @@
+{%
+  set classes = [
+    'node',
+    'node--type-' ~ node.bundle|clean_class,
+    node.isPromoted() ? 'node--promoted',
+    node.isSticky() ? 'node--sticky',
+    not node.isPublished() ? 'node--unpublished',
+    view_mode ? 'node--view-mode-' ~ view_mode|clean_class,
+    'text-header-place-' ~ content.field_place_text_header['#items'].value,
+  ]
+%}
+{{ attach_library('classy/node') }}
+
+<div class="float-prev-next-link">
+  <div class="wrapper">
+    {% if content.prevnext_previous|render %}
+      {{ content.prevnext_previous }}
+    {% else %}
+      <div class="prevnext-element previous no-link">{{ "Previous"|t }}</div>
+    {% endif %}
+    {% if content.prevnext_next|render %}
+      {{ content.prevnext_next }}
+    {% else %}
+        <div class="prevnext-element next no-link">{{ "Next"|t }}</div>
+    {% endif %}
+  </div>
+</div>
+<article{{ attributes.addClass(classes) }}>
+
+  {{ title_prefix }}
+  {% if label and not page %}
+    <h2{{ title_attributes }}>
+      <a href="{{ url }}" rel="bookmark">{{ label }}</a>
+    </h2>
+  {% endif %}
+  {{ title_suffix }}
+
+  {% if display_submitted %}
+    <footer class="node__meta">
+      {{ author_picture }}
+      <div{{ author_attributes.addClass('node__submitted') }}>
+        {% trans %}Submitted by {{ author_name }} on {{ date }}{% endtrans %}
+        {{ metadata }}
+      </div>
+    </footer>
+  {% endif %}
+
+<div class="header-project">
+  {% if content.field_main_image_mobile|render %}
+    <div class="parallax for-mobile" style="background-image: url('{{ file_url(node.field_main_image_mobile.entity.field_media_image.entity.fileuri) }}')"></div>
+  {% endif %}
+  <div class="parallax for-desktop" style="background-image: url('{{ file_url(node.field_main_image.entity.field_media_image.entity.fileuri) }}')"></div>
+  <div class="on-image">
+    {% if content.field_title_white['#items'].value != "1" %}
+      <div class="wrapper">
+    {% else %}
+        <div class="wrapper white">
+    {% endif %}
+    {% if content.field_no_logo['#items'].value != "1" %}
+      {{ content.field_logo}}
+    {% endif %}
+    <h1 class="page-title">
+      {% if content.field_title|render %}
+        {{ content.field_title }}
+      {% else %}
+        {{ label }}
+      {% endif %}
+    </h1>
+    <h2>{{ content.field_subtitle }}</h2>
+  </div></div>
+</div>
+    {% if node.id!='1' %}
+  <ul class="breadcrumbs">
+    {% if language == "en" %}
+      <li><a href="/en">Home</a></li><span> ></span>
+      <li><a href="/en#projects">Projects</a></li><span> ></span>
+    {% else %}
+       <li><a href="/">{{ 'Home'|t }}</a></li><span> ></span>
+      <li><a href="/#projects">{{ 'Projects'|t }}</a></li><span> ></span>
+     {% endif %}
+    <li>{{ label }}</li>
+  </ul>
+{% endif %}
+  <div{{ content_attributes.addClass('node__content') }}>
+    {{ content|without('prevnext_next','prevnext_next','field_no_logo','field_type','field_goto_project','field_title_white','field_title','field_logo','field_white_logo','field_place_text_header','field_main_image','field_main_image_mobile','field_lobby','field_white_menu','field_subtitle') }}
+  </div>
+
+</article>

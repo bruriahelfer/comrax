@@ -1,0 +1,16 @@
+base:
+  css:
+    theme:
+      stylesheets/main.css: {}
+      //fonts.googleapis.com/css2?family=Open+Sans:wght@400;500;700;800&display=swap: { type: external, minified: true }
+  js:
+    js/basic.js: {}
+    js/comrax.js: {}
+  dependencies:
+    - core/jquery
+    - core/drupal
+    - core/jquery.once
+    - core/drupal.ajax
+    - core/jquery.ui.effects.core
+    - core/jquery.ui.effects.slide
+    - core/jquery.ui.effects.size

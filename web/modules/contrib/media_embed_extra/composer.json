@@ -1,0 +1,13 @@
+{
+    "name": "drupal/media_embed_extra",
+    "type": "drupal-module",
+    "description": "Extra options for media embed widget.",
+    "keywords": [
+    ],
+    "homepage": "https://www.drupal.org/project/media_embed_extra",
+    "minimum-stability": "dev",
+    "support": {
+        "issues": "https://www.drupal.org/project/issues/media_embed_extra",
+        "source": "http://cgit.drupalcode.org/media_embed_extra"
+    }
+}

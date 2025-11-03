@@ -1,0 +1,6 @@
+webform_geoip_restriction.settings:
+  title: Webform GeoIP Restriction
+  route_name: webform_geoip_restriction.settings
+  parent: system.admin_config_system
+  description: 'Configure Webform GeoIP Restriction to update Maxmind DB.'
+  weight: 10

@@ -1,0 +1,19 @@
+views.sort.views_random_seed_random:
+  type: views_sort
+  label: 'Standard'
+  mapping:
+    user_seed_type:
+      type: string
+      label: 'User seed type'
+    anonymous_session:
+      type: boolean
+      label: 'Start sessions for anonymous users'
+    reset_seed_int:
+      type: integer
+      label: 'Reset seed'
+    reset_seed_custom:
+      type: integer
+      label: 'Custom reset seed'
+    reuse_seed:
+      type: string
+      label: 'Reuse seed from another View'

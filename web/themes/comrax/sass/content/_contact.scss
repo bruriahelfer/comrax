@@ -1,0 +1,126 @@
+.page-node-55{
+    .region-content{
+        #block-comrax-local-tasks, #block-comrax-content{
+            h1{
+                [dir="ltr"] &{
+                    &:after{
+                        content:"";
+                        background: -webkit-gradient(linear,left top,right top,from(#d11a2e),color-stop(25%,#d11a2e),color-stop(25%,#ec6623),color-stop(50%,#ec6623),color-stop(50%,#6eb639),color-stop(75%,#6eb639),color-stop(75%,#5bc1d4),to(#5bc1d4));
+                        background: linear-gradient(to right,#d11a2e 0%,#d11a2e 25%,#ec6623 25%,#ec6623 50%,#6eb639 50%,#6eb639 75%,#5bc1d4 75%,#5bc1d4 100%);
+                        width: 181px;
+                        height: 3px;
+                        display: block;
+                        margin: 10px auto 0;
+                      }
+                }
+            }
+        }
+    }
+    .region-content-bottom{
+        @include width;
+        width: 1430px;
+        display: flex;
+        justify-content: space-between;
+        @include res(s-m){
+            display: block;
+        }
+        .block-webform{
+            width: 72%;
+            @include res(s-m){
+                width: 100%;
+            }   
+        }
+        #block-branch-2{
+            width: 22%;
+            font-size: 0.8em;
+            margin-top: 30px;
+            @include res(s-m){
+                width: 100%;
+            }
+            .paragraph--type--cube{
+                background: url(/themes/comrax/images/location.svg) no-repeat $start center;
+                padding-#{$start}: 45px;
+                h2{
+                    font-size: 1em;
+                    margin: 0;
+                    padding: 0;
+                    text-align: initial;
+                    &:after{
+                        display: none;
+                    }
+                }
+                h3{
+                    font-size: 1em;
+                    font-weight: normal;
+                    margin: 3px 0 40px;
+                    line-height: 1.5;
+                }
+            }
+        }
+    }
+}
+
+form.webform-submission-contact-english-large-form{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    @include res(s-m){
+        display: block;
+    }
+    ::placeholder {
+        opacity: 1;
+    }
+    .webform-flexbox{
+        display: block;
+        width: 31%;
+        margin: 0;
+        @include res(s-m-l){
+            width: 100%;
+        }
+        .webform-flex{
+            .webform-flex--container{
+                margin: 0 0 40px;
+                @include res(s-m-l){
+                    margin: 0 0 20px;
+                }
+            }
+            &:last-child .webform-flex--container{
+                margin-bottom: 0;
+            }
+            .js-form-item{
+                width: 100%;
+            }
+        }
+        input{
+            border: 1px solid #C7C7C7;
+            height: 44px;
+            padding: 0 10px;
+            box-sizing: border-box;
+            width: 100%;
+        }
+    }
+    .js-form-type-textarea{
+        width: calc(69% - 40px)!important;
+        margin: 0;
+        @include res(s-m-l){
+            width: 100%!important;
+            margin-top: 20px;
+        }
+        .form-textarea-wrapper{
+            height: 100%;
+        }
+        textarea{
+            border: 1px solid #C7C7C7;
+            height: 100%;
+            padding: 10px;
+        }
+    }
+    .webform-button--submit{
+        width: 100%;
+        text-align: $end;
+            border: 2px solid $default;
+            color: $default;
+            background-color: transparent;
+            padding: 8px 60px;
+    }
+}

@@ -1,0 +1,8 @@
+# Schema for the configuration files of the Webform GeoIP Restriction module.
+webform_geoip_restriction.settings:
+  type: config_object
+  label: 'Webform GeoIP Restriction settings'
+  mapping:
+    example:
+      type: string
+      label: 'Example'

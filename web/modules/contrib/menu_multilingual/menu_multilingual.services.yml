@@ -1,0 +1,4 @@
+services:
+  menu_multilingual.modifier:
+    class: Drupal\menu_multilingual\Menu\MenuMultilingualLinkTreeModifier
+    arguments: ['@language_manager', '@entity_type.manager', '@config.factory']

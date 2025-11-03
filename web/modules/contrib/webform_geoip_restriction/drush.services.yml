@@ -1,0 +1,6 @@
+services:
+  webform_geoip_restriction.updmaxmind:
+    class: Drupal\webform_geoip_restriction\Command\UpdMaxmindCommand
+    arguments: ['@webform_geoip_restriction.update_maxmind_manager']
+    tags:
+      - { name: console.command }

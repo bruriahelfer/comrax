@@ -1,0 +1,36 @@
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished',
+    'image-place-' ~ content.field_image_place['#items'].value,
+    'bg-' ~ content.field_bg_color['#items'].value,
+    'image-bottom-' ~ content.field_image_bottom['#items'].value,
+    'no-image-mobile-' ~ content.field_no_image_mobile['#items'].value,
+    'more-space-' ~ content.field_more_space['#items'].value,
+    'radius-' ~ content.field_radius_image['#items'].value,
+  ]
+%}
+
+{% if content.field_hide['#items'].value != "1" %}
+  {% block paragraph %}
+    <div{{ attributes.addClass(classes) }}>
+    {% if content.field_bg|render %}
+      <div class="bg" style="background-color:{{paragraph.field_bg.0.color}};"></div>
+    {% endif %}
+      <div class="width-wrapper {{ content.field_id|render|striptags|trim }}">
+        {% block content %}
+        <div class="right-side">
+          {{ content.field_image }}
+        </div>
+        <div class="left-side">
+          <h3>{{ content.field_title }}</h3>
+          <h4>{{ content.field_subtitle }}</h4>
+          {{ content.field_contentlong }}
+        </div>
+        {% endblock %}
+      </div>
+    </div>
+  {% endblock paragraph %}
+{% endif %}

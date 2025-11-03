@@ -1,0 +1,258 @@
+.paragraph.paragraph--type--mobile-gallery{
+    width: 100%!important;
+    padding: 60px 0 0!important;
+    background: linear-gradient(180deg, #ecebeb, #efeeee, #f1f1f1, #f4f4f4, #f7f6f6, #faf9f9, #fcfcfc, #ffffff);
+    text-align: center;
+    .narrow{
+        width: 1300px;
+        @media (min-width:769px) and (max-width: 1500px){
+            max-width: calc(100% - 112px);
+        }
+    }
+    h3{
+        font-size: 2.5em;
+        font-weight: 700;
+        @include res(s-m){
+            font-size: 1.5em;
+        }
+    }
+    .field--name-field-title{
+        margin-bottom: 16px !important;
+        font-size: 1em !important;
+    }
+    .field--name-field-subtitle{
+        max-width: 700px;
+        margin: 0 auto;
+        h2{
+            margin: 0;
+            font-weight: normal;
+        }
+    }
+    .field--name-field-gallery-image{
+        margin-top: 0px;
+        position: relative;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 610px;
+        @media (min-width: 1025px) and (max-width: 1150px){
+            height: 400px;
+        }
+        @include res(s-m){
+            height: auto;
+            width: 200px;
+            margin: 0 auto;
+        }
+        @include res(s){
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        &:before{
+            top: 31px;
+            content: "";
+            background: url("/themes/comrax/images/base.png") no-repeat center center;
+            position: absolute;
+            width: 41%;
+            height: 100%;
+            background-size: 100% auto;
+            margin-#{$start}: 3px;
+            @media (min-width: 1300px) and (max-width: 1500px){
+                width: 41%;
+                top: 28px;
+            }
+            @media (min-width: 1025px) and (max-width: 1299px){
+                width: 26%;
+                top: -3px;
+            }
+            @include res(l){
+                width: 70%;
+                top: 35px;
+            }
+            @include res(s-m){
+                width: 459px;
+                top: 24px;
+                padding-top: 15px;
+            }
+        }
+        /*
+        &:after{
+            content: "";
+            width: 58px;
+            height: 17px;
+            background: url("/themes/comrax/images/cam.png") no-repeat center center;
+            position: absolute;
+            top:82px;
+            background-size: 100%;
+            @media (min-width:1025px) and (max-width: 1500px){
+                top: 105px;
+            }
+            @include res(l){
+                top: 75px;
+            }
+            @include res(s-m){
+                top: 45px;
+            }
+        }*/
+        .owl-controls{
+            position: absolute;
+            width: 100%;
+            height: 0;
+            .owl-nav{
+                display: flex;
+                justify-content: space-between;
+                height: 0;
+                .owl-prev, .owl-next{
+                    width: 50px;
+                    height: 50px;
+                    background-size: 100%;
+                    text-indent: -9999px;
+                    border-radius: 50%;
+                    @include res(s){
+                        width: 30px;
+                        height: 30px;
+                    }
+                }
+                .owl-prev{
+                    background: url("/themes/comrax/images/gallery-#{$start}.svg") no-repeat center center;
+                    #{$end}: 60px;
+                    position: relative;
+                    @media (min-width:1025px) and (max-width: 1500px){
+                        #{$end}: 20px;
+                    }
+                    @include res(m){
+                        #{$end}: 100px;
+                    }
+                    @include res(s){
+                        #{$end}: 42px;
+                        background-size: 28px;
+                    }
+                }   
+                .owl-next{
+                    background: url("/themes/comrax/images/gallery-#{$end}.svg") no-repeat center center;
+                    #{$start}: 60px;
+                    position: relative;
+                    @media (min-width:1025px) and (max-width: 1500px){
+                        #{$start}: 20px;
+                    }
+                    @include res(m){
+                        #{$start}: 100px;
+                    }
+                    @include res(s){
+                        #{$start}: 42px;
+                        background-size: 28px;
+                    }
+                }
+            }
+        }
+        .owl-stage-outer{
+            padding: 38px 0;
+        }
+        .owl-item{
+            box-sizing: border-box;
+            transition: padding 0.5s;
+            padding: 24px;
+            margin-top: 24px;
+            @include res(l){
+                padding: 15px;
+                margin-top: 15px; 
+            }
+            @include res(s-m){
+                padding: 0;
+                margin-top: 0; 
+                #{$start}: auto;
+            }
+            &.active{
+                padding: 24px;
+                margin-top: 24px;
+                #{$start}: 30px;
+                @include res(l){
+                    padding: 15px;
+                    margin-top: 15px; 
+                    #{$start}: auto;
+                }
+                @include res(s-m){
+                    padding: 0;
+                    margin-top: -4px; 
+                    #{$start}: auto;
+                    .field--name-field-media-image .field__item{
+                        box-shadow: none;
+                    }
+                }
+                + .active{
+                    padding: 15px;
+                    margin-top: 15px;
+                    #{$start}: auto;
+                    @include res(l){
+                        padding: 1px;
+                        margin-top: -9px;
+                        .field--name-field-media-image .field__item{
+                            box-shadow: none;
+                        }
+                    }
+                    + .active{
+                        padding: 0px;
+                        margin-top: -12px;
+                        #{$start}: auto;
+                        @include res(l){
+                            padding: 15px;
+                            margin-top: 15px; 
+                        }
+                        .field--name-field-media-image .field__item{
+                            box-shadow: none;
+                            @include res(l){
+                                box-shadow: 0px 12px 9px -7px rgba(112,105,105,0.75);
+                                -webkit-box-shadow: 0px 12px 9px -7px rgba(112,105,105,0.75);
+                                -moz-box-shadow: 0px 12px 9px -7px rgba(112,105,105,0.75);
+                            }
+                        }
+                        + .active{
+                            padding: 15px;
+                            margin-top: 15px;
+                            #{$start}: auto;
+                            .field--name-field-media-image .field__item{
+                                box-shadow: 0px 12px 9px -7px rgba(112,105,105,0.75);
+                                -webkit-box-shadow: 0px 12px 9px -7px rgba(112,105,105,0.75);
+                                -moz-box-shadow: 0px 12px 9px -7px rgba(112,105,105,0.75);
+                            }
+                            + .active{
+                                padding: 24px;
+                                margin-top: 24px;
+                                margin-#{$start}: -30px;
+                                #{$start}: auto;
+                                .field--name-field-media-image .field__item{
+                                    box-shadow: 0px 12px 9px -7px rgba(112,105,105,0.75);
+                                    -webkit-box-shadow: 0px 12px 9px -7px rgba(112,105,105,0.75);
+                                    -moz-box-shadow: 0px 12px 9px -7px rgba(112,105,105,0.75);
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            .field--name-field-media-image{
+                img{
+                    border-radius: 34px;
+                    @media (min-width: 1300px) and (max-width: 1500px){
+                        border-radius: 29px;
+                    }
+                    @include res(l){
+                        border-radius: 33px;
+                    }
+                }
+                .field__item{
+                    position: relative;
+                    box-shadow: 0px 12px 9px -7px rgba(112,105,105,0.75);
+                    -webkit-box-shadow: 0px 12px 9px -7px rgba(112,105,105,0.75);
+                    -moz-box-shadow: 0px 12px 9px -7px rgba(112,105,105,0.75);
+                    border-radius: 34px;
+                    @media (min-width: 1300px) and (max-width: 1500px){
+                        border-radius: 29px;
+                    }
+                    @include res(l){
+                        border-radius: 33px;
+                    }
+                }
+            }
+        }
+    }
+}

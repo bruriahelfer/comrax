@@ -1,0 +1,472 @@
+.paragraph--type--projects{
+  overflow: hidden;
+  padding: 70px 0;
+  @include res(s-m-l){
+    padding-top: 30px;
+    padding-bottom: 33px;
+  }
+  .width-wrapper{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    h2{
+      width: auto!important;
+      padding: 0!important;
+      margin: 0;
+    }
+  }
+  .view{
+    @include width;
+    &.view-display-id-block_1{
+      width: 100%;
+      padding: 0;
+    }
+  }
+  .view-projects.view-display-id-block_1, .view-projects.view-display-id-block_3{
+    .view-content{
+      overflow: visible;
+    }
+  }
+  .view-projects.view-display-id-block_1{
+    position: relative;
+    .view-content{
+      @include width;
+      position: initial;
+      .owl-stage-outer{
+        overflow: visible;
+      }
+      .owl-prev, .owl-next{
+        position: absolute;
+        top: 0;
+        width: calc(50% - 814px);
+        height: calc(100% + 5px);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-indent: -9999px;
+        &:before, &:after{
+          content:"";
+          width: 20px;
+          height: 2px;
+          background-color: #000;
+          position: absolute;
+          #{$start}: 0;
+        }
+        @media (max-width: 1730px){
+          width: 50px;
+          @include res(s-m){
+            width: 30px;
+          }
+        }
+        &.disabled{
+          opacity: 0.3;
+        }
+      }
+      .owl-prev{
+        #{$start}: 0;
+        background: linear-gradient(90deg, rgba(255,255,255,0) 0%,rgba(255,255,255,0.6) 35%,rgba(255,255,255,1) 100%);
+        &:before{
+          transform: rotate(45deg);
+          top: calc(50% - 20px);
+          right: calc(50% - 7px);
+        }
+        &:after{
+            transform: rotate(-45deg);
+            top: calc(50% - 7px);
+            right: calc(50% - 7px);
+        }
+      }
+      .owl-next{
+        #{$end}: 0;
+        background: linear-gradient(90deg, rgba(256,256,256,1) 0%, transparent 100%);
+        &:before{
+          transform: rotate(-45deg);
+          top: calc(50% - 20px);
+          right: calc(50% - 7px);
+        }
+        &:after{
+            transform: rotate(45deg);
+            top: calc(50% - 7px);
+            right: calc(50% - 7px);
+        }
+      }
+    }
+  }       
+ .view-projects.view-display-id-block_3, .view-projects.view-display-id-block_5{
+    .view-content{
+      .views-row{
+        width: calc(33% - 10px);
+        margin-#{$end}: 15px;
+        margin-bottom: 15px;
+        &:nth-child(3n){
+          margin-#{$end}: 0;
+          @include res(s-m){
+            margin: 0 auto 30px;
+          }
+        }
+        @include res(l){
+          width: calc(50% - 15px);
+          &:nth-child(3n){
+            margin-#{$end}: 15px;
+          }
+          &:nth-child(2n){
+            margin-#{$end}: 0;
+          }
+        }
+        @include res(s-m){
+          width: 100%;
+          margin-#{$end}: 0;
+          max-width: 500px;
+          margin: 0 auto 30px;
+          &:nth-child(3n){
+            margin: 0 auto 30px;
+          }
+        }
+      }
+    }
+  }
+  .white-logo{
+    @include res(s-m){
+      display: none;
+    }
+  }
+  .views-field-field-logo, .white-logo{
+    position: absolute;
+    top: 18px;
+    #{$end}: 18px;
+    transition: opacity 0.5s;
+    opacity: 1;
+    img{
+      max-height: 65px;
+      max-width: 160px;
+      height: auto;
+      width: auto;
+    }
+  }
+  .view-content{
+    display: flex;
+    flex-wrap: wrap;
+    overflow: hidden;
+    list-style: none;
+    margin: 0;
+    width: 100%;
+    > .views-row{
+      width: 30%;
+    }
+    .views-row {
+      position: relative;
+      border-radius: 8px;
+      .description{
+        position: absolute;
+        bottom: 0;
+        #{$start}: 0;
+        padding: 30px 40px;
+        width: 100%;
+        height: 100%;
+        box-sizing: border-box;
+        color: #fff; 
+        display: flex;
+        flex-direction: column;
+        justify-content: flex-end;
+        @include res(xl){
+          padding: 20px;
+        }
+        @include res(xxl){
+          padding: 20px;
+        }
+        @include res(s-m){
+          padding: 15px;
+        }
+        &.with-link{
+          background: url(/themes/comrax/images/arrow-projects-#{$end}.svg) no-repeat $end 15px bottom 15px;
+        }
+        .title{
+            font-size: 1.4em;
+            font-weight: bold;
+            margin-bottom: 10px;
+            @include res(s-m-l){
+              font-size: 1.1em;
+            }
+        }
+        .subtitle{
+          font-size: 1.1em;
+          @include res(xl){
+            font-size: 0.9em;
+          }
+          @include res(xxl){
+            font-size: 0.9em;
+          }
+          @include res(s-m-l){
+            font-size: 0.8em;
+            padding-#{$end}: 25px;
+          }
+          @include res(s-m){
+            display: none;
+          }
+        }
+      }
+      .views-field-field-lobby{
+        width: 100%;
+        img{
+          width: 100%;
+        }
+      }
+      .views-field-field-goto-project{
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        #{$end}: 0;
+        background-color: rgba(0,0,0,0.5);
+        opacity: 0;
+        transition: opacity 0.5s;
+        border-radius: 8px;
+        @include res(s-m){
+          opacity: 1;
+          background: linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.5) 100%);
+        }
+        .field-content{
+          width: 100%;
+          height: 100%;
+          a{
+            display: block;
+            width: 100%;
+            height: 100%;
+            color: transparent;
+          }
+        }
+      }
+      .views-field-field-lobby img{
+        opacity: 1;
+        -webkit-transition: opacity 0.35s;
+        transition: opacity 0.35s;
+        margin-bottom: -3px;
+      }
+
+      &:hover{
+        .views-field-field-goto-project{
+          opacity: 1;
+        }
+        .views-field-field-lobb img{
+          opacity: 0.3;
+        }
+        .views-field-field-logo{
+          opacity: 0;
+          @include res(s-m){
+            opacity: 1;
+          }
+        }
+      }
+    }
+    @include res(s-m){
+      .owl-item .views-row .views-field-field-lobby img{
+        margin-bottom: 0;
+      }
+    }
+  }
+  .pager__item{
+    text-align: center;
+    display: block;
+    a{
+      @include button-arrow-bottom;
+    }
+  }
+/*
+  .horizontal-scroll-section{
+    $root: &;
+    position: relative;
+    min-height: 100vh;
+    opacity: 0;
+    transition: 0.2s opacity;
+    @include res(s-m){
+      display: none;
+    }
+    .scene {
+      display: flex;
+      align-items: center;
+      position: absolute;
+      height: 100vh;
+      min-height: 700px;
+      top: 0;
+      #{$end}: 0;
+      #{$start}: 0;
+      padding-top: 50px;
+      transition: padding 0.5s;
+      &--active {
+        position: fixed;
+        padding-top: 70px;
+      }
+      &--ended {
+        position: absolute;
+        bottom: 0;
+        top: auto;
+      }
+      .scene-wrapper{
+        position: relative;
+        margin: 0 auto;
+        .flex{
+          width: 100vw;
+          position: absolute;
+          top: -80px;
+          > .width-wrapper{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 80px;
+          }
+          h2{
+            width: auto;
+            padding: 0;
+            margin: 0;
+          }
+        }
+      }
+    }
+    &--init {
+      opacity: 1;
+    }
+    &__content {
+      display: flex;
+      &-wrapper {
+        display: flex;
+        height: 100%;
+        align-items: center;
+        position: relative;
+        padding-#{$start}: calc(50vw - 820px);
+        @include res(width){
+          padding-#{$start}: 50px;
+        }
+      }
+      &-section {
+        position: relative;
+        margin-#{$end}:  60px;
+        display: flex;
+        align-items: center;
+        min-width:24vw;
+        @include res(l){
+          min-width: 38vw;
+        }
+        @include res(s-m){
+          margin-#{$end}: 35px;
+          min-width: 70vw;
+        }
+      }
+    }
+  }
+  */
+  .only-mobile-l{
+    .view{
+      padding-#{$end}: 0;
+      .view-content{
+        width: 80%;
+        overflow: visible;
+      }
+    }
+  }
+  .all-project{
+    @include res(s-m){
+      padding: 20px 30px;
+      font-size: 0.8em;
+    }
+    a{
+      color: $orange;
+      text-decoration: underline;
+      font-size: 1.1em;
+    }
+    &.width-wrapper{
+      margin-top: 30px;
+      a{
+        font-size: 0.9em;
+      }
+    }
+  }
+  .field--name-field-projects{
+    @include width;
+    width: 1620px;
+    display: flex;
+    flex-wrap: wrap;
+    > .field__item, .views-row{
+      width: 32%;
+      margin-right: 2%;
+      position: relative;
+      margin-bottom: 45px;
+      &:nth-child(3n){
+        margin-right: 0;
+        @include res(l){
+          margin-right: 4%;
+        }
+        @include res(s-m){
+          margin: 0 auto 30px;
+        }
+      }
+      @include res(l){
+        width: 48%;
+        margin-right: 4%;
+        &:nth-child(2n){
+          margin-right: 0;
+        }
+      }
+      @include res(s-m){
+        width: 100%;
+        margin: 0 auto 30px;
+      }
+      .field--name-field-logo{
+        width: 244px;
+        height: 88px;
+        background-color: rgba(256,256,256,0.9);
+        position: absolute;
+        bottom: -2px;
+        left: 0;
+        border-left: 6px solid;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        @include res(l){
+          width: 144px;
+          height: 58px;
+        }
+        @include res(s){
+          width: 193px;
+          height: 43px;
+        }
+        img{
+          max-height: 70px;
+          max-width: 190px;
+          width: auto;
+          height: auto;
+          margin: 0;
+          @include res(l){
+            max-height: 30px;
+            max-width: 100px;
+          }
+          @include res(s){
+            max-height: 30px;
+          max-width: 165px;
+          }
+        }
+      }
+      &:nth-child(4n+1){
+        .field--name-field-logo{
+          border-left-color: #d11a2e;
+        }
+      }
+      &:nth-child(4n+2){
+        .field--name-field-logo{
+          border-left-color: #ec6623 ;
+        }
+      }
+      &:nth-child(4n+3){
+        .field--name-field-logo{
+          border-left-color: #6eb639 ;
+        }
+      }
+      &:nth-child(4n){
+        .field--name-field-logo{
+          border-left-color: #5bc1d4 ;
+        }
+      }
+    }
+  }
+}
+

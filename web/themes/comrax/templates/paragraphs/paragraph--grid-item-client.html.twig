@@ -1,0 +1,61 @@
+{#
+/**
+ * @file
+ * Default theme implementation to display a paragraph.
+ *
+ * Available variables:
+ * - paragraph: Full paragraph entity.
+ *   Only method names starting with "get", "has", or "is" and a few common
+ *   methods such as "id", "label", and "bundle" are available. For example:
+ *   - paragraph.getCreatedTime() will return the paragraph creation timestamp.
+ *   - paragraph.id(): The paragraph ID.
+ *   - paragraph.bundle(): The type of the paragraph, for example, "image" or "text".
+ *   - paragraph.getOwnerId(): The user ID of the paragraph author.
+ *   See Drupal\paragraphs\Entity\Paragraph for a full list of public properties
+ *   and methods for the paragraph object.
+ * - content: All paragraph items. Use {{ content }} to print them all,
+ *   or print a subset such as {{ content.field_example }}. Use
+ *   {{ content|without('field_example') }} to temporarily suppress the printing
+ *   of a given child element.
+ * - attributes: HTML attributes for the containing element.
+ *   The attributes.class element may contain one or more of the following
+ *   classes:
+ *   - paragraphs: The current template type (also known as a "theming hook").
+ *   - paragraphs--type-[type]: The current paragraphs type. For example, if the paragraph is an
+ *     "Image" it would result in "paragraphs--type--image". Note that the machine
+ *     name will often be in a short form of the human readable label.
+ *   - paragraphs--view-mode--[view_mode]: The View Mode of the paragraph; for example, a
+ *     preview would result in: "paragraphs--view-mode--preview", and
+ *     default: "paragraphs--view-mode--default".
+ * - view_mode: View mode; for example, "preview" or "full".
+ * - logged_in: Flag for authenticated user status. Will be true when the
+ *   current user is a logged-in member.
+ * - is_admin: Flag for admin user status. Will be true when the current user
+ *   is an administrator.
+ *
+ * @see template_preprocess_paragraph()
+ *
+ * @ingroup themeable
+ */
+#}
+{%
+  set classes = [
+    'paragraph',
+    'paragraph--type--' ~ paragraph.bundle|clean_class,
+    view_mode ? 'paragraph--view-mode--' ~ view_mode|clean_class,
+    not paragraph.isPublished() ? 'paragraph--unpublished'
+  ]
+%}
+
+{% if content.field_hide['#items'].value != "1" %}
+  {% block paragraph %}
+    <div{{ attributes.addClass(classes) }}>
+      {% block content %}
+        <div class="quote-svg">
+            <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="33.214" height="28.872" viewBox="0 0 33.214 28.872"><defs><clipPath id="clip-path"><rect id="Rectangle_3581" data-name="Rectangle 3581" width="33.214" height="28.872" fill="#5bc1d4"/></clipPath></defs><g id="Group_4338" data-name="Group 4338" transform="translate(33.214 28.872) rotate(180)"><g id="Group_4337" data-name="Group 4337" clip-path="url(#clip-path)"><path id="Path_3450" data-name="Path 3450" d="M15.087,0V12.808c0,7.489-6.284,13.578-10.2,15.984a.512.512,0,0,1-.653-.773,23.922,23.922,0,0,0,6.078-12.932H0V0Z" fill="#5bc1d4"/><path id="Path_3451" data-name="Path 3451" d="M359.843,0V12.808c0,7.489-6.284,13.578-10.2,15.984a.512.512,0,0,1-.653-.773,23.922,23.922,0,0,0,6.078-12.932H344.756V0Z" transform="translate(-326.629)" fill="#5bc1d4"/></g></g></svg>
+        </div>
+        {{ content|without('field_hide') }}
+      {% endblock %}
+    </div>
+  {% endblock paragraph %}
+{% endif %}

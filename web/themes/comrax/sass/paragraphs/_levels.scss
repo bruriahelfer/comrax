@@ -1,0 +1,208 @@
+.paragraph--type--levels{
+    padding-top: 50px;
+    @include res(s-m-l){
+        background: none;
+        padding-top: 20px;
+    }
+    .field--name-field-levels{
+        @include width;
+        width: 1000px;
+    }
+    .field--name-field-levels > .field__item{
+        position: relative;
+        padding-bottom: 120px;
+        margin-bottom: 20px;
+        @include res(s-m){
+            padding-bottom: 0;
+        }
+        .level-number{
+            position: absolute;
+            #{$start}: calc(50% - 24px);
+            height: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            @include res(s-m){
+                height: auto;
+                position: relative;
+                width: 100%;
+                #{$start}: 0;
+            }
+            &:after{
+                height: calc(100% - 90px);
+                margin-top: 10px;
+                content:"";
+                background: url(/themes/comrax/images/gray-dot.svg) repeat-y top center;
+                width: 6px;
+                @include res(s-m){
+                    order: -1;
+                    height: 70px;
+                    margin: 0px;
+                }
+            }
+            .level-label{
+                color: #9d9d9d;
+                font-size: 1.5em;
+                font-weight: 800;
+                margin-bottom: -5px;
+            }
+            .number{
+                color: $orange;
+                font-size: 2.5em;
+                font-weight: 600;
+            }
+        }
+        .paragraph--type--level{
+            .wrapper{
+                display: flex;
+                justify-content: space-between;
+                @include res(s-m){
+                    flex-direction: column;
+                    align-items: center;
+                    padding-top: 20px;
+                }
+                .right, .left{
+                    width: calc(50% - 50px);
+                    max-width: 320px;
+                    margin-top: 16px;
+                    @include res(s-m){
+                        margin-top: 0;
+                        width: 100%;
+                    }
+                }
+                .right{
+                    @include res(s-m){
+                        text-align: center;
+                    }
+                    .field--name-field-level-image{
+                        position: relative;
+                        &:after{
+                            width: 0;
+                            height: 0;
+                            border-style: solid;    
+                            border-width: 0 10px 17px 10px;
+                            border-color: transparent transparent $orange transparent;
+                            content: "";
+                            position: absolute;
+                            @include res(s-m){
+                                display: none;
+                            }
+                        }
+                        img{
+                            border: 3px solid $orange;
+                            padding: 25px;
+                            border-radius: 50%;
+                        }
+                    }
+                }
+                .left{
+                    @include res(s-m){
+                        padding-top: 30px;
+                        text-align: center;
+                    }
+                    .field--name-field-title h2{
+                        padding: 0;
+                        font-size: 1.4em;
+                        font-weight: 600;
+                        margin-bottom: 5px;
+                    }
+                }
+            }
+        }
+        &:nth-child(2n){
+            .paragraph--type--level{
+                .wrapper{
+                    flex-direction: row-reverse;
+                    @include res(s-m){
+                        flex-direction: column;
+                    }
+                    .left{
+                        text-align: $end;
+                        @include res(s-m){
+                            text-align: center;
+                        }
+                    }
+                    .right{
+                        .field--name-field-level-image{
+                            &:after{
+                                transform: rotate(58deg);
+                                top: 37px;
+                                #{$start}: -5px;
+                                .dir-ltr &{
+                                    #{$start}: -2px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &:nth-child(2n+1){
+            .paragraph--type--level{
+                .wrapper{
+                    .right{
+                        text-align: $end;
+                        @include res(s-m){
+                            text-align: center;
+                        }
+                        .field--name-field-level-image{
+                            &:after{
+                                transform: rotate(61deg);
+                                top: 40px;
+                                #{$end}: -3px;
+                                .dir-ltr &{
+                                    #{$end}: -8px;
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        &:last-child{
+            @include res(s-m){
+                padding-bottom: 50px;
+            }
+            .level-number{
+                &:after{
+                    display: none;
+                    @include res(s-m){
+                        display: block;
+                    }
+                }
+            }
+            .paragraph--type--level{
+                .wrapper{
+                    flex-direction: column;
+                    align-items: center;
+                    padding-top: 100px;
+                    @include res(s-m){
+                        padding-top: 20px;
+                    }
+                    .right{
+                        text-align: center;
+                        .field--name-field-level-image{
+                            &:after{
+                                display: none;
+                            }
+                        }
+                    }
+                    .left{
+                        padding-top: 30px;
+                        text-align: center;
+                    }
+                }
+            }
+        }
+        &:first-child{
+            @include res(s-m){
+                .level-number{
+                    &:after{
+                        display: none;
+                    }
+                }
+            }
+        }
+    }
+}

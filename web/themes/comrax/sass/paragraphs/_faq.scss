@@ -1,0 +1,48 @@
+.paragraph--type--faq{
+    @include width;
+    width: 1000px;
+    .paragraph--type--faq-item{
+        margin-bottom: 20px;
+        border-left: 8px solid #fff;
+        .field--name-field-questions{
+            font-weight: bold;
+            padding: 20px 30px;
+            position: relative;
+            cursor: pointer;
+            padding-#{$end}: 40px;
+            background-color: #fff;
+            &:after{
+                content: "+";
+                position: absolute;
+                #{$end}: 25px;
+                top: 19px;
+                font-size: 2em;
+                font-weight: normal;
+                border-radius: 50%;
+                width: 25px;
+                height: 25px;
+                box-sizing: border-box;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                color: $orange;
+            }
+        }
+        &.show{
+            border-left: 8px solid $orange;
+            .field--name-field-questions{
+                &:after{
+                    content: "-";
+                    padding-bottom: 4px;
+                }
+            }
+        }
+        .field--name-field-answers{
+            height: 0;
+            overflow: hidden;
+            padding-#{$end}: 50px;
+            padding-#{$start}: 30px;
+            background-color: #fff;
+        }
+    }
+}

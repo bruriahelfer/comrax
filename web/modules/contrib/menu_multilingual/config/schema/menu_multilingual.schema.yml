@@ -1,0 +1,10 @@
+block.block.*.third_party.menu_multilingual:
+  type: mapping
+  label: 'Multilingual options'
+  mapping:
+    only_translated_labels:
+      type: boolean
+      label: 'Display menu links with translated labels'
+    only_translated_content:
+      type: boolean
+      label: 'Display menu links with translated content'

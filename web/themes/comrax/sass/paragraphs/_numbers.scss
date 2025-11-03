@@ -1,0 +1,41 @@
+.paragraph--type--numbers{
+    background-color: #0F2435;
+    color: #fff;
+    padding-top: 80px;
+    padding-bottom: 80px;
+    @include res(s-m){
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+    .width-wrapper{
+        width: 1500px;
+        .field--name-field-item-number{
+            display: flex;
+            @include res(s-m){
+                flex-wrap: wrap;
+            }
+            > .field__item{
+                width: 33.3333%;
+                text-align: center;
+                @include res(s-m){
+                    width: 100%;
+                    margin-bottom: 30px;
+                }
+                .number{
+                    font-size: 3em;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                }
+                .field--name-field-title{
+                    h2{
+                        color: #5d83a2;
+                        margin: 10px 0 0;
+                        font-size: 1em;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+}

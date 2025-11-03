@@ -1,0 +1,271 @@
+.paragraph--type--texts-around-image{
+    max-width: 1410px;
+    margin: 0 auto;
+    position: relative;
+    @include res(s-m-l){
+        max-width: 350px;
+        margin: 0 auto;
+        text-align: center;
+        line-height: 1.5;
+    }
+    .paragraph--type--content-title-around-image{
+        margin-bottom: 40px;
+        @media(min-width:1025px) and (max-width: 1512px){
+            margin-bottom: 2.6vw;
+        }
+        .field--name-field-icon-mobile{
+            display: none;
+            @include res(s-m-l){
+                display: block;
+                width: 105px;
+                height: 105px;
+                margin: 0 auto 30px;
+                border: 4px solid #009CDE;
+                border-radius: 50%;
+                box-shadow: 0px 3px 6px #00000029;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                img{
+                    width: 50px;
+                }
+            }
+        }
+        .field--name-field-title{
+            h2{
+                font-size: 1.2em;
+                font-weight: bold;
+                margin: 0;
+                padding: 0 0 10px;
+                @media(min-width:1025px) and (max-width: 1512px){
+                    font-size: 1.4vw;
+                    padding-bottom: .7vw;
+                }
+            }
+        }
+        .field--name-field-subtitle{
+            font-size: 0.9em;
+            @media(min-width:1025px) and (max-width: 1512px){
+                font-size: 1.1vw;
+            }
+            h2{
+                margin: 0;
+                font-weight: normal;
+            }
+        }
+    }
+    .owl-controls{
+        .owl-nav{
+            position: absolute;
+            top: 30px;
+            #{$start}: 0;
+            width: 100%;
+            .owl-prev, .owl-next{
+                border-radius: 50%;
+                border: 2px solid;
+                color: $orange;
+                width: 50px;
+                height: 50px;
+                position: absolute;
+                background-color: #fff;
+                font-size: 0;
+                &:before, &:after{
+                    width: 20px;
+                    height: 2px;
+                    background-color: $orange;
+                    position: absolute;
+                    content: "";
+                }
+                &.disabled{
+                    color: #D0D0D0;
+                    cursor: default;
+                    &:before, &:after{
+                        background-color: #D0D0D0;
+                    }
+                }
+            }
+            .owl-prev{
+                #{$start}: 0;
+                &:before, &:after{
+                    #{$start}: 13px;
+                }
+                &:before{
+                    transform: rotate(45deg);
+                    top: 17px;
+                }
+                &:after{
+                    transform: rotate(-45deg);
+                    top: 30px;
+                }
+            }
+            .owl-next{
+                #{$end}: 0;
+                &:before, &:after{
+                    #{$end}: 13px;
+                }
+                &:before{
+                    transform: rotate(45deg);
+                    top: 30px;
+                }
+                &:after{
+                    transform: rotate(-45deg);
+                    top: 17px;
+                }
+            }
+        }
+        .owl-dots{
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+            .owl-dot{
+                width: 10px;
+                height: 10px;
+                background-color: #D0D0D0;
+                border-radius: 50%;
+                margin: 0 6px;
+                &.active{
+                    width: 12px;
+                    height: 12px;
+                    background-color: #009CDE;
+                    margin-top: -1px;
+                }
+            }
+        }
+    }
+    .field--name-field-image{
+        position: absolute;
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 100%;
+        @include res(s-m-l){
+            display: none;
+        }
+    }
+    &.style-rows{
+        .field--name-field-image{
+            img{
+                width: calc(100% - 580px);
+                @media(min-width:1025px) and (max-width: 1512px){
+                    width: calc(100% - 38vw);
+                }
+            }
+        }
+        .field--name-field-texts-around{
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            z-index: 10;
+            position: relative;
+            @include res(s-m-l){
+                display: block;
+            }
+            > .field__item{
+                width: 240px;
+                margin-#{$end}: calc(100% - 480px);
+                @media(min-width:1025px) and (max-width: 1512px){
+                    width: 15vw;
+                    margin-#{$end}: calc(100% - 31vw);
+                }
+                @include res(s-m-l){
+                    width: 100%;
+                    margin: 0;
+                    text-align: center;
+                }
+                &:nth-child(2n){
+                    margin-#{$end}: 0;
+                }
+            }
+            .paragraph--type--content-title-around-image{
+                margin-bottom: 40px;
+                @media(min-width:1025px) and (max-width: 1512px){
+                    margin-bottom: 2.6vw;
+                }
+                @include res(s-m-l){
+                    margin-bottom: 0;
+                }
+            }
+        }
+    }
+    &.style-circle{
+        max-width: 1300px;
+        @include res(s-m-l){
+            max-width: 350px;
+        }
+        .field--name-field-image{
+            display: block;
+            text-align: center;
+            @include res(s-m-l){
+                display: none;
+            }
+            img{
+                width: calc(100% - 600px);
+                @media(min-width:1025px) and (max-width: 1400px){
+                    width: calc(100% - 43vw);
+                }
+            }
+        }
+        .field--name-field-texts-around{
+            display: flex;
+            flex-wrap: wrap;
+            z-index: 10;
+            position: relative;
+            @include res(s-m-l){
+                display: block;
+            }
+            > .field__item{
+                width: 50%;
+                .paragraph--type--content-title-around-image {
+                    width: 260px;
+                    margin-bottom: 35px;
+                    @media(min-width:1025px) and (max-width: 1400px){
+                        width: 18vw;
+                        margin-bottom: 3vw;
+                    }
+                }
+                &:nth-child(2n){
+                    display: flex;
+                    justify-content: flex-end;
+                }
+                &:nth-child(1){
+                    .paragraph--type--content-title-around-image {
+                        margin-#{$start}: 75px;
+                        @media(min-width:1025px) and (max-width: 1400px){
+                            margin-#{$start}: 5.4vw;
+                        }
+                    }
+                }
+                &:nth-child(2){
+                    .paragraph--type--content-title-around-image {
+                        margin-#{$end}: 75px;
+                        @media(min-width:1025px) and (max-width: 1400px){
+                            margin-#{$end}: 5.4vw;
+                        }
+                    }
+                }
+                &:nth-child(5){
+                    .paragraph--type--content-title-around-image {
+                        margin-#{$start}: 70px;
+                        @media(min-width:1025px) and (max-width: 1400px){
+                            margin-#{$start}: 5vw;
+                        }
+                    }
+                }
+                &:nth-child(6){
+                    .paragraph--type--content-title-around-image {
+                        margin-#{$end}: 70px;
+                        @media(min-width:1025px) and (max-width: 1400px){
+                            margin-#{$end}: 5vw;
+                        }
+                    }
+                }
+                &:last-child{
+                    width: 100%;
+                    display: flex;
+                    justify-content: center;
+                }
+            }
+        }
+    }
+}
