@@ -737,7 +737,7 @@ body main .layout-content .owl-1{
     background: url(/themes/comrax/images/email-white.svg) no-repeat center left 17px #12D178;
     position: fixed;
     bottom: 40px;
-    #{$end}: 40px;
+    #{$start}: 40px;
     padding: 15px 18px 15px 54px;
     cursor: pointer;
     @include res(s-m){
